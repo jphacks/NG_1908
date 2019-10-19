@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8946cd0d3ae34f4dad51661c41187f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Appeal: 0
-  Scale: -0.3
-  StartScaleXZ: 0.5
+  Appeal: 1
+  PlayerCame: 0
+  Speed: -0.15
+  StartScaleXZ: 0.3
 --- !u!1001 &6846047523655396060
 PrefabInstance:
   m_ObjectHideFlags: 0
