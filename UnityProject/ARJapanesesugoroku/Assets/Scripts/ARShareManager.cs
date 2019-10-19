@@ -51,17 +51,17 @@ public class ARShareManager : MonoBehaviour
     void Update()
     {
         outPutText2.text = PhotonNetwork.PlayerList.Length.ToString();
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("raycastManager : " + raycastManager);
-            Debug.Log("object : " + objectPrefab);
-            if (raycastManager.Raycast(Input.GetTouch(0).position, hitResults))
-            {
-                Debug.Log("Making obj...    ");
-                Instantiate(objectPrefab, hitResults[0].pose.position, Quaternion.identity);
-                Debug.Log("Made obj!");
-            }
-        }
+//        if (Input.GetMouseButtonDown(0))
+//        {
+//            Debug.Log("raycastManager : " + raycastManager);
+//            Debug.Log("object : " + objectPrefab);
+//            if (raycastManager.Raycast(Input.GetTouch(0).position, hitResults))
+//            {
+//                Debug.Log("Making obj...    ");
+//                PhotonNetwork.Instantiate(objectPrefab.name, hitResults[0].pose.position, Quaternion.identity);
+//                Debug.Log("Made obj!");
+//            }
+//        }
     }
 
     public void ShareWorldMap()

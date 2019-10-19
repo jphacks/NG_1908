@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Photon.Pun;
 
 public class Mapping : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class Mapping : MonoBehaviour
             Vector3 distance = myposition - tmpposition;
             if (distance.magnitude >= 1.5)
             {
-                tmpMasu=Instantiate(Masu, myposition, Quaternion.identity);
+                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down, Quaternion.identity);
                 tmpposition = myposition;
             }
         }
@@ -70,7 +71,7 @@ public class Mapping : MonoBehaviour
         StartButton.SetActive(false);
         EndButton.SetActive(true);
         //スタートマスを置く
-        Instantiate(StartMasu,tmpposition,Quaternion.identity);
+        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down,Quaternion.identity);
         creatingflag = true;
     }
     //エンドボタンを押したらマップを作り終わる
@@ -80,7 +81,7 @@ public class Mapping : MonoBehaviour
         {
             tmpposition = tmpMasu.transform.position;
             Destroy(tmpMasu);
-            Instantiate(GoalMasu, tmpposition, Quaternion.identity);
+            PhotonNetwork.Instantiate(GoalMasu.name, tmpposition + Vector3.down, Quaternion.identity);
             MasuList = GameObject.FindGameObjectsWithTag("Masu");
             Debug.Log(string.Join(", ", MasuList.Select(obj => obj.ToString())));
             EndButton.SetActive(false);

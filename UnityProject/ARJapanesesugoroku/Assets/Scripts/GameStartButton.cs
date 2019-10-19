@@ -10,6 +10,6 @@ public class GameStartButton : MonoBehaviour
     //クリックしたらゲームスタート
     public void OnClick()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("ItokaTest");
     }
 }
