@@ -5,9 +5,11 @@ using UnityEngine;
 public class JugdeUpNumber : MonoBehaviour
 {
     //上面のサイコロの目
-    int UpDiceNumber;
+     public int UpDiceNumber=0;
     //投げた後かどうかの判定用
     bool throwing = false;
+    //さいころの値の判定用
+    public bool flag = false;
 
     //サイコロの中心と各側面のｙ座標
     float centery, y1, y2, y3, y4, y5, y6;
@@ -24,6 +26,7 @@ public class JugdeUpNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        flag = false;
         //ｙ座標代入
         Vector3 tmpDice = GameObject.Find("Dice").transform.position;
         centery = tmpDice.y;
@@ -46,37 +49,39 @@ public class JugdeUpNumber : MonoBehaviour
             if (y1 - centery >= 1.7 && y1 - centery <= 1.9)
             {
                 Invoke("DiceUp1", 3);
+                
             }
             if (y2 - centery >= 1.7 && y2 - centery <= 1.9)
             {
                 Invoke("DiceUp2", 3);
+                
             }
             if (y3 - centery >= 1.7 && y3 - centery <= 1.9)
             {
                 Invoke("DiceUp3", 3);
+                
             }
             if (y4 - centery >= 1.7 && y4 - centery <= 1.9)
             {
                 Invoke("DiceUp4", 3);
+                
             }
             if (y5 - centery >= 1.7 && y5 - centery <= 1.9)
             {
                 Invoke("DiceUp5", 3);
+                
             }
             if (y6 - centery >= 1.7 && y6 - centery <= 1.9)
             {
                 Invoke("DiceUp6", 3);
+                
             }
 
-            //サイコロの目の表示
-            if (UpDiceNumber != 0)
-            {
-                Debug.Log("サイコロの目は" + UpDiceNumber);
-                UpDiceNumber = 0;
-            }
+
 
         }
-        
+
+
     }
     
     //以下３秒後の判定、投げた判定throwingを元に戻す
@@ -84,60 +89,72 @@ public class JugdeUpNumber : MonoBehaviour
     {
         if (y1 - centery >= 1.7 && y1 - centery <= 1.9)
         {
-            Debug.Log("１が上です！");
+            //Debug.Log("１が上です！");
             UpDiceNumber = 1;
+            flag = true;
+            throwing = false;
         }
-        throwing = false;
-        
+
     }
     void DiceUp2()
     {
         if (y2 - centery >= 1.7 && y2 - centery <= 1.9)
         {
-            Debug.Log("2が上です！");
+            //Debug.Log("2が上です！");
             UpDiceNumber = 2;
+            flag = true;
+            throwing = false;
         }
-        throwing = false;
+        
 
     }
     void DiceUp3()
     {
         if (y3 - centery >= 1.7 && y3 - centery <= 1.9)
         {
-            Debug.Log("3が上です！");
+            //Debug.Log("3が上です！");
             UpDiceNumber = 3;
+            flag = true;
+            throwing = false;
         }
-        throwing = false;
+        
 
     }
     void DiceUp4()
     {
         if (y4 - centery >= 1.7 && y4 - centery <= 1.9)
         {
-            Debug.Log("4が上です！");
+            //Debug.Log("4が上です！");
             UpDiceNumber = 4;
+            flag = true;
+            throwing = false;
         }
-        throwing = false;
+        
 
     }
     void DiceUp5()
     {
         if (y5 - centery >= 1.7 && y5 - centery <= 1.9)
         {
-            Debug.Log("5が上です！");
+            //Debug.Log("5が上です！");
             UpDiceNumber = 5;
+            flag = true;
+            throwing = false;
         }
-        throwing = false;
+        
 
     }
     void DiceUp6()
     {
         if (y6 - centery >= 1.7 && y6 - centery <= 1.9)
         {
-            Debug.Log("6が上です！");
+            //Debug.Log("6が上です！");
             UpDiceNumber = 6;
+            flag = true;
+            throwing = false;
         }
-        throwing = false;       
+      
 
     }
+
 }

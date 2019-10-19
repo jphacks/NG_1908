@@ -28,8 +28,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     private Mapping mapping;
     //ゲームプレイ中のクラス
     private PlayerTurnMoving playerTurnMoving;
+    //さいころを振るクラス
+    private RollingSaikoro rollingSaikoro;
     //マス移動のクラス
     private MoveSelectedMasu moveSelectedMasu;
+    //エンドシーンのクラス
+    private EndingScript endingScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +42,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         m_photonView = GetComponent<PhotonView>();
         mapping = GetComponent<Mapping>();
         playerTurnMoving = GetComponent<PlayerTurnMoving>();
+        rollingSaikoro = GetComponent<RollingSaikoro>();
         moveSelectedMasu = GetComponent<MoveSelectedMasu>();
+        endingScript = GetComponent<EndingScript>();
     }
 
     // Update is called once per frame
@@ -105,16 +112,23 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
                 break;
             case GameState.InitRollingDice:
+                if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
+                {
+                    rollingSaikoro.RollSaikoro();
+                }
                 gameState = GameState.RollingDice;
                 break;
             case GameState.RollingDice:
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
                     //ここにダイス振る処理入れる
-                    //デバッグ用aaaaaa
-                    dicenumber = 1;
-                    Debug.Log(dicenumber);
-                    m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMovingToSquere);
+                    if (rollingSaikoro.Ready == true)
+                    {
+                        dicenumber = rollingSaikoro.updicenumber;
+                        Debug.Log(dicenumber);
+                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMovingToSquere);
+                    }
+                 
                 }
                 break;
             case GameState.InitMovingToSquere:
@@ -150,12 +164,23 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
                     //ここにターンプレイヤーがゴールにいるかどうか確認する
-                    //次のステータスへ
-                    m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
+                    if (mynumber == MasuList.Length-1)
+                    {
+                        //次のステータスへ
+                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitFinishGame);
+                    }
+                    else
+                    {
+                        //繰り返し
+                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
+                    }
+
+                  
                 }
                 break;
             //ゲーム終了開始
             case GameState.InitFinishGame:
+                endingScript.EndLoad();
                 break;
             //ゲーム終了処理中
             case GameState.FinishGame:
