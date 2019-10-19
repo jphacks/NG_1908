@@ -5073,4 +5073,4 @@ MonoBehaviour:
   text: {fileID: 1481219703}
   startbutton: {fileID: 971330163}
   endbutton: {fileID: 1995152552}
-  manimator: {fileID: 0}
+  manimator: {fileID: 1481219702}

@@ -6,7 +6,6 @@ using TMPro;
 public class tyuniill : MonoBehaviour
 {
     public TextMeshPro text;
-    public int large;
     public GameObject startbutton;
     public GameObject endbutton;
     public Animator manimator;
@@ -21,14 +20,14 @@ public class tyuniill : MonoBehaviour
     {
 
     }
-    public void tyunistart()
+    public void sukustart()
     {
         manimator.SetInteger("large" ,1);
         text.text = "これから中二病になれ！";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }
-    public void tyunisukuend()
+    public void sukuend()
     {
         endbutton.gameObject.SetActive(false);
         text.text = "おつかれ！";
