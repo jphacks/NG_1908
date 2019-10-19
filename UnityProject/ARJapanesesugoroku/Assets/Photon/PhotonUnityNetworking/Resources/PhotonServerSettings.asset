@@ -35,5 +35,8 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPCSetState
+  - DownloadWorldMap
+  - RPCDebug
+  - RPCSetWorldMap
   DisableAutoOpenWizard: 1
   ShowSettings: 1

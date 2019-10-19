@@ -163,8 +163,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.Event:
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
+                    Debug.Log(mynumber);
+                    Debug.Log(MasuList.Length);
+                    Debug.Log(mynumber == MasuList.Length);
                     //ここにターンプレイヤーがゴールにいるかどうか確認する
-                    if (mynumber == MasuList.Length-1)
+                    if (mynumber == MasuList.Length)
                     {
                         //次のステータスへ
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitFinishGame);

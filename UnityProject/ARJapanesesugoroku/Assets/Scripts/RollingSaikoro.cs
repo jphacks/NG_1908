@@ -9,10 +9,11 @@ public class RollingSaikoro : MonoBehaviour
     public bool Ready = false;
     //アップデートを動かすフラグ
     public bool flag;
-    public GameObject Saikoro;
-    public GameObject Ground;
+    public GameObject SaikoroKit;
+    public GameObject MadeSaikoro;
+    /*public GameObject Ground;
     public GameObject ThroughDiceButton;
-    public GameObject JudgeUpnumber;
+    public GameObject RollCanvas;*/
     public int updicenumber;
     private JugdeUpNumber judgeupnumber;
     private Vector3 saikoropos;
@@ -20,7 +21,6 @@ public class RollingSaikoro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        judgeupnumber = JudgeUpnumber.GetComponent<JugdeUpNumber>();
     }
 
     // Update is called once per frame
@@ -33,18 +33,19 @@ public class RollingSaikoro : MonoBehaviour
             {
                 updicenumber = judgeupnumber.UpDiceNumber;
                 Ready = true;
-                Destroy(Saikoro);
-                Destroy(Ground);
-                Destroy(ThroughDiceButton);
+                Destroy(MadeSaikoro);
+                /*Destroy(Ground);
+                Destroy(ThroughDiceButton);*/
                 flag = false;
             }
         }
     }
     public void RollSaikoro()
     {
-        Instantiate(Saikoro,new Vector3 (0,0,0),Quaternion.identity);
-        Instantiate(Ground, new Vector3(0, 0, 0), Quaternion.identity);
-        Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity);
+        MadeSaikoro = Instantiate(SaikoroKit,new Vector3 (0,0,0),Quaternion.identity);
+        judgeupnumber = MadeSaikoro.GetComponentInChildren<JugdeUpNumber>();
+        /*Instantiate(Ground, new Vector3(0, -6, 0), Quaternion.identity);
+        Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity,RollCanvas.transform);*/
         flag = true;
         
     }
