@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - Tag_Masu
+  - Masu
   layers:
   - Default
   - TransparentFX
