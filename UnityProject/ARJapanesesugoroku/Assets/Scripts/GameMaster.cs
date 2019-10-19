@@ -12,10 +12,14 @@ public class GameMaster : MonoBehaviourPunCallbacks ,IPunObservable
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
     public string PlayerID;
+
+    //マッピングのクラス
+    private Mapping mapping;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mapping = GetComponent<Mapping>();    
     }
 
     // Update is called once per frame
@@ -27,8 +31,21 @@ public class GameMaster : MonoBehaviourPunCallbacks ,IPunObservable
             case GameState.Idle:
                 break;
             case GameState.InitMapping:
+                if(PlayerID == PhotonNetwork.LocalPlayer.UserId)
+                {
+                    mapping.CreateMapping();
+                    gameState = GameState.Mapping;        
+                }
                 break;
             case GameState.Mapping:
+                if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
+                {
+                    if (mapping.Ready==true)
+                    {
+
+                    }
+                    gameState = GameState.WaitingOthers;
+                }
                 break;
             case GameState.WaitingOthers:
                 break;
