@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.Idle:
                 if (debugg == true)
                 {
+                    Debug.Log("A");
                     gameState = GameState.InitMapping;
                 }
                 break;
