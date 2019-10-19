@@ -8,8 +8,6 @@ public class JugdeUpNumber : MonoBehaviour
      public int UpDiceNumber=0;
     //投げた後かどうかの判定用
     bool throwing = false;
-    //さいころの値の判定用
-    public bool flag = false;
 
     //サイコロの中心と各側面のｙ座標
     float centery, y1, y2, y3, y4, y5, y6;
@@ -26,7 +24,7 @@ public class JugdeUpNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        flag = false;
+      
         //ｙ座標代入
         Vector3 tmpDice = GameObject.Find("Dice").transform.position;
         centery = tmpDice.y;
@@ -90,8 +88,7 @@ public class JugdeUpNumber : MonoBehaviour
         if (y1 - centery >= 1.7 && y1 - centery <= 1.9)
         {
             //Debug.Log("１が上です！");
-            UpDiceNumber = 1;
-            flag = true;
+            UpDiceNumber = 1;       
             throwing = false;
         }
 
@@ -101,8 +98,7 @@ public class JugdeUpNumber : MonoBehaviour
         if (y2 - centery >= 1.7 && y2 - centery <= 1.9)
         {
             //Debug.Log("2が上です！");
-            UpDiceNumber = 2;
-            flag = true;
+            UpDiceNumber = 2;    
             throwing = false;
         }
         
@@ -113,8 +109,7 @@ public class JugdeUpNumber : MonoBehaviour
         if (y3 - centery >= 1.7 && y3 - centery <= 1.9)
         {
             //Debug.Log("3が上です！");
-            UpDiceNumber = 3;
-            flag = true;
+            UpDiceNumber = 3;          
             throwing = false;
         }
         
@@ -125,8 +120,7 @@ public class JugdeUpNumber : MonoBehaviour
         if (y4 - centery >= 1.7 && y4 - centery <= 1.9)
         {
             //Debug.Log("4が上です！");
-            UpDiceNumber = 4;
-            flag = true;
+            UpDiceNumber = 4;        
             throwing = false;
         }
         
@@ -138,7 +132,6 @@ public class JugdeUpNumber : MonoBehaviour
         {
             //Debug.Log("5が上です！");
             UpDiceNumber = 5;
-            flag = true;
             throwing = false;
         }
         
@@ -150,7 +143,6 @@ public class JugdeUpNumber : MonoBehaviour
         {
             //Debug.Log("6が上です！");
             UpDiceNumber = 6;
-            flag = true;
             throwing = false;
         }
       

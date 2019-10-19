@@ -11,7 +11,7 @@ public class RollingSaikoro : MonoBehaviour
     public bool flag;
     public GameObject Saikoro;
     public GameObject Ground;
-    public GameObject TroughDiceButton;
+    public GameObject ThroughDiceButton;
     public GameObject JudgeUpnumber;
     public int updicenumber;
     private JugdeUpNumber judgeupnumber;
@@ -21,8 +21,6 @@ public class RollingSaikoro : MonoBehaviour
     void Start()
     {
         judgeupnumber = JudgeUpnumber.GetComponent<JugdeUpNumber>();
-        saikoropos= Saikoro.transform.position;
-        saikororot = Saikoro.transform.rotation;
     }
 
     // Update is called once per frame
@@ -31,27 +29,23 @@ public class RollingSaikoro : MonoBehaviour
         Ready = false;
         if (flag == true)
         {           
-            if (judgeupnumber.flag == true)
+            if (judgeupnumber.UpDiceNumber!=0)
             {
                 updicenumber = judgeupnumber.UpDiceNumber;
                 Ready = true;
-                Saikoro.GetComponent<Rigidbody>().useGravity = false;
-                Saikoro.SetActive(false);
-                Ground.SetActive(false);
-                TroughDiceButton.SetActive(false);
+                Destroy(Saikoro);
+                Destroy(Ground);
+                Destroy(ThroughDiceButton);
                 flag = false;
             }
         }
     }
     public void RollSaikoro()
     {
-        Debug.Log(judgeupnumber.UpDiceNumber);
-        Saikoro.SetActive(true);
-        Ground.SetActive(true);
-        Saikoro.transform.position = saikoropos;
-        Saikoro.transform.rotation = saikororot;
-        TroughDiceButton.SetActive(true);
+        Instantiate(Saikoro,new Vector3 (0,0,0),Quaternion.identity);
+        Instantiate(Ground, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity);
         flag = true;
-        Ready = false;
+        
     }
 }

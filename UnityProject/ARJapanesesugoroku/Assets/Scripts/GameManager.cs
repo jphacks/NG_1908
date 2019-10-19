@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.InitMapping:
                 //デバッグ用aaaaaaaaaaaa
                 PlayerID = PhotonNetwork.LocalPlayer.UserId;
-                if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
+                if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("Initmapping");
                     mapping.CreateMapping();
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
             //マップ生成中
             case GameState.Mapping:
-                if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
+                if (PhotonNetwork.IsMasterClient)
                 {
                     if (mapping.Ready==true)
                     {
