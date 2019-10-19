@@ -17,6 +17,7 @@ public class StartMaster : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+
     public  override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster");

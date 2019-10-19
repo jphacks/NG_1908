@@ -11,6 +11,6 @@ public class StartButton : MonoBehaviour
     public void OnClick()
     {
         PhotonNetwork.JoinOrCreateRoom("room",new RoomOptions(), TypedLobby.Default);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("WaitScene");
     }
 }
