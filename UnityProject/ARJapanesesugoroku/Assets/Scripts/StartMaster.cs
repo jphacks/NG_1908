@@ -19,11 +19,13 @@ public class StartMaster : MonoBehaviourPunCallbacks
 
     public  override void OnConnectedToMaster()
     {
+        Debug.Log("OnConnectedToMaster");
         //マスターサーバーに接続したらLobbyに入る
         PhotonNetwork.JoinLobby();
     }
     public override void OnJoinedLobby()
     {
+        Debug.Log("OnJoinedLobby");
         //Lobbyに入ったらボタンを起動
         StartButton.SetActive(true);
     }
