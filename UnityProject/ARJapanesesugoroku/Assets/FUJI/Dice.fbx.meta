@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 724e2929b7bbff542a9b92ff50a9c3a3
+guid: 42a8ec57f1dc1ec4eaf9a5b8ece87138
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MasuColor
-    second: {fileID: 2100000, guid: 1c3dd6868bffcc94b8421d2072ac4fa0, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
