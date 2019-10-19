@@ -1,18 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class StartMaster : MonoBehaviour
+public class StartMaster : MonoBehaviourPunCallbacks
 {
+    /// <summary>
+    /// Photonに接続するところまで実装
+    /// </summary>
+    public GameObject StartButton;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //マスターサーバーに接続する
+        PhotonNetwork.ConnectUsingSettings();
     }
 
-    // Update is called once per frame
-    void Update()
+    public  override void OnConnectedToMaster()
     {
-        
+        //マスターサーバーに接続したらLobbyに入る
+        PhotonNetwork.JoinLobby();
+    }
+    public override void OnJoinedLobby()
+    {
+        //Lobbyに入ったらボタンを起動
+        StartButton.SetActive(true);
     }
 }
