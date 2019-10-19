@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class PlayerResult : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text text;
+    public Text ResultFirst;
     void Start()
     {
-        string[] playername = new string[4];
-        playername[0] = "1stplayer";
-        playername[1] = "2ndplayer";
-        playername[2] = "3rdplayer";
-        playername[3] = "4thplayer";
-        text.text = "1位   " + playername[0] + "\n2位   " + playername[1] + "\n3位   " + playername[2] + "\n4位   " + playername[3]; 
+        string Firstplayer = "player1";
 
+        ResultFirst.text = Firstplayer;
+    }
+
+    public void winner()
+    {
+       
     }
 
     // Update is called once per frame
