@@ -7,7 +7,7 @@ public class Countdowning : MonoBehaviour
 {
     public Text timerText;
 
-    public float totalTime = 30;
+    public float totalTime;
     int seconds;
 
     // Use this for initialization
