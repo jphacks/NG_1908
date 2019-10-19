@@ -329,7 +329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &275944789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +449,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 618570583}
+  - component: {fileID: 618570585}
   - component: {fileID: 618570582}
+  - component: {fileID: 618570584}
+  - component: {fileID: 618570586}
+  - component: {fileID: 618570587}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -472,11 +476,14 @@ MonoBehaviour:
   Ready: 0
   StartButton: {fileID: 275944788}
   EndButton: {fileID: 1398816053}
+  HostPaneru: {fileID: 781148962}
+  GuestPanel: {fileID: 781148962}
   StartMasu: {fileID: 2360733887690302419, guid: 6e8a1143973446f45895163553779980,
     type: 3}
   Masu: {fileID: 3733590025037656085, guid: f85423ad1d263c14f9ef91f73d256c30, type: 3}
   GoalMasu: {fileID: 3664842660957010668, guid: 176a4bcc1bd6302439b1928093ea8a98,
     type: 3}
+  MasuList: []
 --- !u!4 &618570583
 Transform:
   m_ObjectHideFlags: 0
@@ -491,6 +498,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &618570584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618570581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88afd5eac5013b4438d0d9da05045b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ready: 0
+--- !u!114 &618570585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618570581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4e5be49fbcf0845a8eefa4db7210f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugg: 0
+  PlayerID: 
+--- !u!114 &618570586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618570581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff2a0eed28d4ce45a302a6f6e5c8fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &618570587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618570581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &753277777
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +649,7 @@ GameObject:
   - component: {fileID: 781148964}
   - component: {fileID: 781148963}
   - component: {fileID: 781148967}
+  - component: {fileID: 781148968}
   m_Layer: 0
   m_Name: Koma
   m_TagString: Player
@@ -673,6 +742,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2905abab3785c2849913b0a8238bb5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &781148968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781148962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &935644198
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1398816054
 RectTransform:
   m_ObjectHideFlags: 0
