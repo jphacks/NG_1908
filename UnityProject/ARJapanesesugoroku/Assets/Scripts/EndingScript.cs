@@ -1,27 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class PlayerResult : MonoBehaviour
+public class EndingScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text ResultFirst;
     void Start()
     {
-        string Firstplayer = "player1";
-
-        ResultFirst.text = Firstplayer;
-    }
-
-    public void winner()
-    {
-       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void EndLoad()
+    {
+        SceneManager.LoadScene("FinishScene");
     }
 }

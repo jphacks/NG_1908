@@ -83,6 +83,7 @@ public class Mapping : MonoBehaviour
             Instantiate(GoalMasu, tmpposition, Quaternion.identity);
             MasuList = GameObject.FindGameObjectsWithTag("Masu");
             Debug.Log(string.Join(", ", MasuList.Select(obj => obj.ToString())));
+            EndButton.SetActive(false);
             creatingflag = false;
             Ready = true;
         }
