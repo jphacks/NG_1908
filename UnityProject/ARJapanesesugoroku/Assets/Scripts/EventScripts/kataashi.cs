@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class skip : MonoBehaviour
+public class kataashi : MonoBehaviour
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -21,8 +21,8 @@ public class skip : MonoBehaviour
     }
     public void sukustart()
     {
-        manimator.SetInteger("large", 6);
-        text.text = "次の人スキップ";
+        manimator.SetInteger("large", 7);
+        text.text = "1ターン片足立ち！";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }
