@@ -472,10 +472,10 @@ MonoBehaviour:
   Ready: 0
   StartButton: {fileID: 275944788}
   EndButton: {fileID: 1398816053}
-  StartMasu: {fileID: -927199367670048503, guid: 724e2929b7bbff542a9b92ff50a9c3a3,
+  StartMasu: {fileID: 2360733887690302419, guid: 6e8a1143973446f45895163553779980,
     type: 3}
-  Masu: {fileID: -927199367670048503, guid: 724e2929b7bbff542a9b92ff50a9c3a3, type: 3}
-  GoalMasu: {fileID: -927199367670048503, guid: 724e2929b7bbff542a9b92ff50a9c3a3,
+  Masu: {fileID: 3733590025037656085, guid: f85423ad1d263c14f9ef91f73d256c30, type: 3}
+  GoalMasu: {fileID: 3664842660957010668, guid: 176a4bcc1bd6302439b1928093ea8a98,
     type: 3}
 --- !u!4 &618570583
 Transform:
