@@ -535,8 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6b7dd1086d62548a5d5e67f584e4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  totalTime: 0
+  timerText: {fileID: 269749522}
+  totalTime: 30
 --- !u!1 &555724028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1195,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494243286}
   m_CullTransparentMesh: 0
+--- !u!1 &1512269640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512269643}
+  - component: {fileID: 1512269642}
+  - component: {fileID: 1512269641}
+  m_Layer: 0
+  m_Name: GameMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1512269641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512269640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a37e2220e78f104d9ffac14300a5e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ready: 0
+  StartButton: {fileID: 555724028}
+  EndButton: {fileID: 810433796}
+  StartMasu: {fileID: -927199367670048503, guid: 4ec57e923f4b6b446b16ace1d847482d,
+    type: 3}
+  Masu: {fileID: -927199367670048503, guid: 724e2929b7bbff542a9b92ff50a9c3a3, type: 3}
+  GoalMasu: {fileID: -927199367670048503, guid: 66172415ce8d5654190cce1495a82d14,
+    type: 3}
+--- !u!114 &1512269642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512269640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4e5be49fbcf0845a8eefa4db7210f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerID: 
+--- !u!4 &1512269643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512269640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 300.26172, y: 407.11633, z: 71.98511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650483067
 GameObject:
   m_ObjectHideFlags: 0
