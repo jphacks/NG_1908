@@ -9,6 +9,8 @@ public class Countdowning : MonoBehaviour
 
     public float totalTime;
     int seconds;
+    //フラグ
+    bool flag = false;
 
     // Use this for initialization
     void Start()
@@ -19,9 +21,17 @@ public class Countdowning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalTime  -= Time.deltaTime;
-        seconds = (int)totalTime;
-        timerText.text = seconds.ToString();
+        if (flag ==  true)
+        {
+            totalTime -= Time.deltaTime;
+            seconds = (int)totalTime;
+            timerText.text = seconds.ToString();
+        }
 
+
+    }
+    public void OnClickEnd()
+    {
+        flag = true;
     }
 }

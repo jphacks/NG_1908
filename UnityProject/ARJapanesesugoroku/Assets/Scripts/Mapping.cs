@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Mapping : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class Mapping : MonoBehaviour
     public GameObject StartButton;
     //ゴールボタン
     public GameObject EndButton;
+    //ホスト用の表示パネル
+    public GameObject HostPaneru;
+    //ゲスト用の表示パネル
+    public GameObject GuestPanel;
     //スタートマス
     public GameObject StartMasu;
     //通常マス
@@ -25,6 +30,9 @@ public class Mapping : MonoBehaviour
     public GameObject GoalMasu;
     //ゴールマス生成用に一時的に記憶しておく
     private GameObject tmpMasu;
+    //配置されたマスのリスト
+    [SerializeField]
+    public GameObject[] MasuList;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +57,11 @@ public class Mapping : MonoBehaviour
     public void CreateMapping()
     {
         StartButton.SetActive(true);
+        HostPaneru.SetActive(true);
+    }
+    public void WaitingMapping()
+    {
+        GuestPanel.SetActive(true);
     }
     //スタートボタンを押したらマップを作り始める
     public void OnClickStartButton()
@@ -68,6 +81,8 @@ public class Mapping : MonoBehaviour
             tmpposition = tmpMasu.transform.position;
             Destroy(tmpMasu);
             Instantiate(GoalMasu, tmpposition, Quaternion.identity);
+            MasuList = GameObject.FindGameObjectsWithTag("Masu");
+            Debug.Log(string.Join(", ", MasuList.Select(obj => obj.ToString())));
             creatingflag = false;
             Ready = true;
         }
