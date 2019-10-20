@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class　modoru : Masu
+public class　threechar : Masu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -22,7 +22,7 @@ public class　modoru : Masu
     public override void sukustart()
     {
         manimator.SetInteger("large", 5);
-        text.text = "1もどる";
+        text.text = "これから3文字だけで話そう！";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }

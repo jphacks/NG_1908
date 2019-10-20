@@ -33,6 +33,8 @@ public class MasuAppeal : MonoBehaviour
     {
         if(Appeal == true)
         {
+            Count = 0;
+            time = 0;
             WaitingText.enabled = true;
             Frame.enabled = true;
             FrameParent.transform.localScale += new Vector3(Speed,0,Speed) * Time.deltaTime;
@@ -42,6 +44,7 @@ public class MasuAppeal : MonoBehaviour
         }
         if(PlayerCame == true)
         {
+            Invoke("PCfalse", 1);
             WaitingText.enabled = false;
             OKText.enabled = true;
             Appeal = false;
@@ -58,8 +61,12 @@ public class MasuAppeal : MonoBehaviour
                 PlusMinus *= -1;
                 Count++;
             }
-            OKText.enabled = false;
-            Count = 0;
             }
         }
+    void PCfalse()
+    {
+        PlayerCame = false;
+        OKText.enabled = false;
+        Frame.enabled = false;
+    }
     }
