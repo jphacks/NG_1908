@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private string[] PlayerList;
     //ダイスの目
     private int dicenumber;
-    //自分の現在マス
+    //自分の現在マス(1オリジン)
     private int mynumber=0;
     //ネクストプレイヤーID
     private int nextplayerID;
@@ -183,7 +183,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.InitEvent:
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
-                    //ここにイベントせいぎょのしょりをいれる
+                    //イベントせいぎょのしょり
+                    MasuList[mynumber-1].GetComponent<Masu>().sukustart();
                 }
                 gameState = GameState.Event;
                 break;
@@ -204,8 +205,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                         //繰り返し
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
                     }
-
-                  
                 }
                 break;
             //ゲーム終了開始
