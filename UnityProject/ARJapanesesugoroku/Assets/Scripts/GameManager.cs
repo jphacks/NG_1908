@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     //現在状態の把握
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
-    public string PlayerID = null;
+    public string PlayerID;
     //マスの管理リスト
     private GameObject[] MasuList;
     //プレイヤーリスト
@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             //マップ生成開始
             case GameState.InitMapping:
                 //デバッグ用aaaaaaaaaaaa
-                PlayerID = PhotonNetwork.LocalPlayer.UserId;
                 if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("Initmapping");
@@ -125,29 +124,32 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.PlayingGame:
                 //ターン数は1ターン目からスタート
                 turnnumber += 1;
-                if (PlayerID == null)
+                if (PhotonNetwork.IsMasterClient)
                 {
-                    PlayerID = PlayerList[0];
-                }
-                else
-                {
-                    int Playermember = PhotonNetwork.PlayerList.Length;
-                    if(PlayerID == PlayerList[Playermember-1])
+                    if (PlayerID == "")
                     {
-                        nextplayerID = 0;
-                        PlayerID = PlayerList[0];
+                        photonView.RPC("RPCSetPlayerID", RpcTarget.All, PlayerList[0]);
                     }
                     else
                     {
-                        nextplayerID += 1;
-                        PlayerID = PlayerList[nextplayerID];
+                        int Playermember = PhotonNetwork.PlayerList.Length;
+                        Debug.Log((PlayerID));
+                        if (PlayerID == PlayerList[Playermember - 1])
+                        {
+                            nextplayerID = 0;
+                            m_photonView.RPC("RPCSetPlayerID", RpcTarget.All, PlayerList[0]);
+                        }
+                        else
+                        {
+                            nextplayerID += 1;
+                            m_photonView.RPC("RPCSetPlayerID", RpcTarget.All, PlayerList[nextplayerID]);
+                        }
                     }
-                }
-                if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
-                {
+                    
                     //ここにターンプレイヤーを変える
                     m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitRollingDice);
                 }
+
                 break;
             case GameState.InitRollingDice:
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
@@ -174,6 +176,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                 {
                     //ここにマスを移動する処理を入れる
                     mynumber= moveSelectedMasu.MasuSelect(dicenumber,mynumber,MasuList);
+                    MasuAppeal appeal = MasuList[mynumber - 1].GetComponent<MasuAppeal>();
+                    if (appeal != null)
+                    {
+                        appeal.Appeal = true;
+                    }
+
                     Debug.Log(mynumber);
                 }
                 m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.MovingToSquere);
@@ -186,8 +194,14 @@ public class GameManager : MonoBehaviourPunCallbacks
                     {
                        // moveSelectedMasu.Ready = false;
                         Debug.Log("youreached!!");
+                        MasuAppeal appeal = MasuList[mynumber - 1].GetComponent<MasuAppeal>();
+                        if (appeal != null)
+                        {
+                            appeal.PlayerCame = true;
+                        }
+
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitEvent);
-                    }
+                        }
 
                 }
                 break;
@@ -235,5 +249,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         gameState = setState;
     }
 
-
+    [PunRPC]
+    public void RPCSetPlayerID(string setid)
+    {
+        PlayerID = setid;
+    }
 }
