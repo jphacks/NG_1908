@@ -44,6 +44,7 @@ public class MasuAppeal : MonoBehaviour
         }
         if(PlayerCame == true)
         {
+            Invoke("PCfalse", 1);
             WaitingText.enabled = false;
             OKText.enabled = true;
             Appeal = false;
@@ -62,4 +63,10 @@ public class MasuAppeal : MonoBehaviour
             }
             }
         }
+    void PCfalse()
+    {
+        PlayerCame = false;
+        OKText.enabled = false;
+        Frame.enabled = false;
+    }
     }
