@@ -1247,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 7896229631580625756, guid: 200fce5e0d67a9d47b981e117d235c96,
         type: 3}
       propertyPath: m_Name
-      value: Masu_Forward
+      value: Masu_forbitEng
       objectReference: {fileID: 0}
     - target: {fileID: 6615316004829407567, guid: 200fce5e0d67a9d47b981e117d235c96,
         type: 3}
@@ -1349,7 +1349,7 @@ GameObject:
   - component: {fileID: 706629507}
   - component: {fileID: 706629506}
   m_Layer: 0
-  m_Name: modorutxt
+  m_Name: 3chartxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1826,7 +1826,7 @@ PrefabInstance:
     - target: {fileID: 1022883969221918024, guid: ad59096073839e44990611d965fbcfbe,
         type: 3}
       propertyPath: m_Name
-      value: Masu_Backward
+      value: Masu_3char
       objectReference: {fileID: 0}
     - target: {fileID: 4064879455510663003, guid: ad59096073839e44990611d965fbcfbe,
         type: 3}
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 944889009}
   - component: {fileID: 944889008}
   m_Layer: 0
-  m_Name: 1yasumitxt
+  m_Name: strangeposetxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5305,7 +5305,7 @@ GameObject:
   - component: {fileID: 2107508890}
   - component: {fileID: 2107508889}
   m_Layer: 0
-  m_Name: susumutxt
+  m_Name: forbitEngtxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5673,7 +5673,7 @@ PrefabInstance:
     - target: {fileID: 7698079941129485738, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_Name
-      value: Masu_yasumi
+      value: Masu_strangepose
       objectReference: {fileID: 0}
     - target: {fileID: 6669350782611214265, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}

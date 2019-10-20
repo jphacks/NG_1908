@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class susumu : Masu
+public class forbitEng : Masu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -22,7 +22,7 @@ public class susumu : Masu
     public override void sukustart()
     {
         manimator.SetInteger("large", 4);
-        text.text = "1進む";
+        text.text = "ここから英語禁止！";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }
