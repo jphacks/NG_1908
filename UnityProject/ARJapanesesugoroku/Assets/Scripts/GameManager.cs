@@ -102,11 +102,17 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
             //全員初期位置移動
             case GameState.InitWaitingOthers:
-                CorrectStartMasu.();
+                correctStartMasu.WaitingAllPlayers();
                 gameState = GameState.WaitingOthers;
                 break;
             case GameState.WaitingOthers:
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    if (correctStartMasu.Ready == true)
+                    {
 
+                    }
+                }
                 m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitGame);
                 break;
             //ゲーム開始
