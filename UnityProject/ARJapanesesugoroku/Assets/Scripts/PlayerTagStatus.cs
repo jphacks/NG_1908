@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PlayerTagStatus : MonoBehaviour
+public class PlayerTagStatus : MonoBehaviourPunCallbacks
 {
     PhotonView m_photonView;
     // Start is called before the first frame update
