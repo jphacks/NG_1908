@@ -33,6 +33,8 @@ public class MasuAppeal : MonoBehaviour
     {
         if(Appeal == true)
         {
+            Count = 0;
+            time = 0;
             WaitingText.enabled = true;
             Frame.enabled = true;
             FrameParent.transform.localScale += new Vector3(Speed,0,Speed) * Time.deltaTime;
@@ -58,8 +60,6 @@ public class MasuAppeal : MonoBehaviour
                 PlusMinus *= -1;
                 Count++;
             }
-            OKText.enabled = false;
-            Count = 0;
             }
         }
     }

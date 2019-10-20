@@ -213,7 +213,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 0}
-  viewIdField: 0
+  viewIdField: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1333969935545929776
@@ -404,7 +404,7 @@ PrefabInstance:
     - target: {fileID: 4677505243003705344, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.66111
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4677505243003705344, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4,
         type: 3}
@@ -414,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 4677505243003705344, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.655555
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4677505243003705344, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4,
         type: 3}
@@ -455,16 +455,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677505243003705344, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.555555
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677505243003705344, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.5555573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210dbe0f6eb45f94eb1f8e2b45fb45c4, type: 3}
