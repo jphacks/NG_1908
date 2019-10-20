@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 393501075}
   - component: {fileID: 393501080}
   m_Layer: 0
-  m_Name: skiptxt
+  m_Name: dancetxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2928,7 +2928,7 @@ PrefabInstance:
     - target: {fileID: 7698079941129485738, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_Name
-      value: Masu_skip
+      value: Masu_dancewithkomachi
       objectReference: {fileID: 0}
     - target: {fileID: 6669350782611214265, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
