@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - Tag_Masu
   - Masu
+  - StartMasu
+  - Others
   layers:
   - Default
   - TransparentFX

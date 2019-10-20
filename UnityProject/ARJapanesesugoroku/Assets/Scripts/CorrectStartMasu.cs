@@ -5,22 +5,32 @@ using UnityEngine;
 public class CorrectStartMasu : MonoBehaviour
 {
     //監視用のフラグ
-    [SerializeField]
-    public bool Ready = false;
+    public bool Ready;
     //Update動かす用のフラグ
     bool flag = false;
+    private Vector3[] objectdistance;
     public void Update()
     {
         if (flag == true)
         {
             Vector3 startposition = GameObject.FindWithTag("StartMasu").GetComponent<Transform>().position;
-            Vector3 myposition = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
-            Vector3 distance = myposition - startposition;
-            if (distance.magnitude <= 1.5)
+            GameObject[] objectList= GameObject.FindGameObjectsWithTag("Player");
+            for (int i=0;i<objectList.Length;i++)
             {
-                Ready = true;
-                flag = false;
+                Vector3 objectposition = objectList[i].GetComponent<Transform>().position;
+                objectdistance[i] = objectposition - startposition;
             }
+
+            for (int i = 0; i < objectList.Length; i++)
+            {
+                if (objectdistance[i].magnitude>1.5)
+                {
+                        return;
+                }
+            }
+            Ready = true;
+            flag = false;
+            
         }
     }
     public void WaitingAllPlayers()
