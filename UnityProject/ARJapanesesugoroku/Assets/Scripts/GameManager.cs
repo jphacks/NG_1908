@@ -16,13 +16,19 @@ public class GameManager : MonoBehaviourPunCallbacks
     //現在状態の把握
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
-    public string PlayerID;
+    public string PlayerID = null;
     //マスの管理リスト
     private GameObject[] MasuList;
+    //プレイヤーリスト
+    private string[] PlayerList;
     //ダイスの目
     private int dicenumber;
     //自分の現在マス
     private int mynumber=0;
+    //ネクストプレイヤーID
+    private int nextplayerID;
+    //ターン数
+    public int turnnumber=0;
     
     //マッピングのクラス
     private Mapping mapping;
@@ -97,15 +103,35 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
             //ゲーム開始
             case GameState.InitGame:
-                if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
+                if (PhotonNetwork.IsMasterClient)
                 {
-                    //playerTurnMoving.InitGame();
+                    PlayerList = playerTurnMoving.InitGame();
                     
                 }
                 gameState = GameState.PlayingGame;
                 break;
             //ゲーム中
             case GameState.PlayingGame:
+                //ターン数は1ターン目からスタート
+                turnnumber += 1;
+                if (PlayerID == null)
+                {
+                    PlayerID = PlayerList[0];
+                }
+                else
+                {
+                    int Playermember = PhotonNetwork.PlayerList.Length;
+                    if(PlayerID == PlayerList[Playermember-1])
+                    {
+                        nextplayerID = 0;
+                        PlayerID = PlayerList[0];
+                    }
+                    else
+                    {
+                        nextplayerID += 1;
+                        PlayerID = PlayerList[nextplayerID];
+                    }
+                }
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
                     //ここにターンプレイヤーを変える
