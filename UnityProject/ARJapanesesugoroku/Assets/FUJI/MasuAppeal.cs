@@ -6,9 +6,13 @@ public class MasuAppeal : MonoBehaviour
 {
     public bool Appeal = false;
     public bool PlayerCame = false;
+    private GameObject FrameParent = null;
     private MeshRenderer Frame = null;
-    public float Speed;
-    public float StartScaleXZ;
+    private MeshRenderer WaitingText = null;
+    private MeshRenderer OKText = null;
+    public float Speed = -0.15f;
+    public float StartScaleXZ = 0.3f;
+    public float Limit;
     private Vector3 StartScale = Vector3.zero;
     private float Interval = 0.1f;
     private float time = 0;
@@ -17,7 +21,10 @@ public class MasuAppeal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Frame = transform.Find("MasuAppealFrame").gameObject.GetComponent<MeshRenderer>();
+        FrameParent = transform.Find("MasuAppealFrame").gameObject;
+        Frame = transform.Find("MasuAppealFrame/MasuAppealFrameChild").gameObject.GetComponent<MeshRenderer>();
+        WaitingText = transform.Find("WaitingForPlayer").gameObject.GetComponent<MeshRenderer>();
+        OKText = transform.Find("OK").gameObject.GetComponent<MeshRenderer>();
         StartScale = new Vector3(StartScaleXZ, 1, StartScaleXZ);
     }
 
@@ -26,15 +33,19 @@ public class MasuAppeal : MonoBehaviour
     {
         if(Appeal == true)
         {
-            transform.localScale += new Vector3(Speed,0,Speed) * Time.deltaTime;
-            if(transform.localScale.x <= 0.18f) {
-                transform.localScale = StartScale;
+            WaitingText.enabled = true;
+            Frame.enabled = true;
+            FrameParent.transform.localScale += new Vector3(Speed,0,Speed) * Time.deltaTime;
+            if(FrameParent.transform.localScale.x <= Limit) {
+                FrameParent.transform.localScale = StartScale;
             }
         }
         if(PlayerCame == true)
         {
+            WaitingText.enabled = false;
+            OKText.enabled = true;
             Appeal = false;
-            transform.localScale = new Vector3(0.18f,1,0.18f);
+            FrameParent.transform.localScale = new Vector3(1,1,1);
             time += PlusMinus*Time.deltaTime;
             if (time > Interval)
             {
@@ -47,7 +58,8 @@ public class MasuAppeal : MonoBehaviour
                 PlusMinus *= -1;
                 Count++;
             }
-            
+            OKText.enabled = false;
+            Count = 0;
             }
         }
     }
