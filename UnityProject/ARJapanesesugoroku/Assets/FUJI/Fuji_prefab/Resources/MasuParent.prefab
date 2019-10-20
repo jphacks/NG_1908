@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 2792348379953013505}
   - component: {fileID: 5656417847629244494}
   - component: {fileID: 3733590025048684630}
+  - component: {fileID: -7170213950117011421}
   m_Layer: 0
   m_Name: MasuParent
   m_TagString: Masu
@@ -232,6 +233,18 @@ MonoBehaviour:
   Speed: -0.15
   StartScaleXZ: 1
   Limit: 0.9
+--- !u!114 &-7170213950117011421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733590025037656085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963fe862f04354b40be2da730e8aca87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4167924286926187106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +252,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2792348379953013505}
     m_Modifications:
+    - target: {fileID: 2880416364344668793, guid: 163118ce70014d64f9c0b453beb9493a,
+        type: 3}
+      propertyPath: m_Name
+      value: Masu
+      objectReference: {fileID: 0}
     - target: {fileID: 1270598613309489258, guid: 163118ce70014d64f9c0b453beb9493a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,11 +321,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 2880416364344668793, guid: 163118ce70014d64f9c0b453beb9493a,
-        type: 3}
-      propertyPath: m_Name
-      value: Masu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163118ce70014d64f9c0b453beb9493a, type: 3}

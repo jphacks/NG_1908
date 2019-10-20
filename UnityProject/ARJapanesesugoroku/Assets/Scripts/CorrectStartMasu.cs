@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class CorrectStartMasu : MonoBehaviour
@@ -13,6 +14,7 @@ public class CorrectStartMasu : MonoBehaviour
     {
         if (flag == true)
         {
+            objectdistance = new Vector3[PhotonNetwork.PlayerList.Length];
             Vector3 startposition = GameObject.FindWithTag("StartMasu").GetComponent<Transform>().position;
             GameObject[] objectList= GameObject.FindGameObjectsWithTag("Player");
             for (int i=0;i<objectList.Length;i++)

@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class PlayerTurnMoving : MonoBehaviourPunCallbacks
 {
-    Player []allplayers;
-    string[] allplayersID;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +20,27 @@ public class PlayerTurnMoving : MonoBehaviourPunCallbacks
     }
     public string [] InitGame()
     {
-        allplayers = PhotonNetwork.PlayerList;
-        //プレイヤーリストをシャッフル
-        for (int i = 0; i < allplayers.Length; i++)
+        Player[] allplayers = PhotonNetwork.PlayerList;
+        string[] allplayersID = new string[allplayers.Length];
+
+        for (int i=0; i<allplayers.Length; i++)
         {
-            Player tmp = allplayers[i];
-            int playernumber = Random.Range(i, allplayers.Length);
-            allplayers[i] = allplayers[playernumber];
-            allplayers[playernumber] = tmp;
+            allplayersID[i] = PhotonNetwork.PlayerList[i].UserId;
         }
-        for (int i = 0; i < allplayers.Length; i++)
-        {
-            allplayersID[i] = allplayers[i].UserId;
-        }
+        Debug.Log(allplayers.Length);
+//        //プレイヤーリストをシャッフル
+//        for (int i = 0; i < allplayers.Length; i++)
+//        {
+//            Player tmp = allplayers[i];
+//            int playernumber = Random.Range(i, allplayers.Length);
+//            allplayers[i] = allplayers[playernumber];
+//            allplayers[playernumber] = tmp;
+//        }
+//        for (int i = 0; i < PhotonNetwork.CurrentRoom.Players.Count; i++)
+//        {
+//            //allplayersID[i] = PhotonNetwork.PlayerList
+//        }
+
         return allplayersID;
     }
 }

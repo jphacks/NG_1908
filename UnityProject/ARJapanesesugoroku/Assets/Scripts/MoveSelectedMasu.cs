@@ -32,7 +32,7 @@ public class MoveSelectedMasu : MonoBehaviour
                 Vector3 targetdistance = MyKomaVector - targetvector;
                 //Debug.Log(targetdistance.magnitude);
                 //ターゲットマスとの距離が一定以下ならマスにのsったと判定
-                if (targetdistance.magnitude <= 1.0)
+                if (targetdistance.magnitude <= 1.5)
                 {
                     //ここにマス目の効果付けの削除を描く
 

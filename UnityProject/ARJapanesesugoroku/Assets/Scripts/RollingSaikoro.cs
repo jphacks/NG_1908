@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class RollingSaikoro : MonoBehaviour
@@ -42,7 +43,7 @@ public class RollingSaikoro : MonoBehaviour
     }
     public void RollSaikoro()
     {
-        MadeSaikoro = Instantiate(SaikoroKit,new Vector3 (0,0,0),Quaternion.identity);
+        MadeSaikoro = PhotonNetwork.Instantiate(SaikoroKit.name,new Vector3 (0,0,0),Quaternion.identity);
         judgeupnumber = MadeSaikoro.GetComponentInChildren<JugdeUpNumber>();
         /*Instantiate(Ground, new Vector3(0, -6, 0), Quaternion.identity);
         Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity,RollCanvas.transform);*/
