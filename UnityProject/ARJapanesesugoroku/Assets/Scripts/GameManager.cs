@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
     private PhotonView m_photonView;
-    public enum GameState { Idle,InitMapping,Mapping,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
+    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
     //現在状態の把握
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private MoveSelectedMasu moveSelectedMasu;
     //エンドシーンのクラス
     private EndingScript endingScript;
+    //人をスタートに集めるマス
+    private CorrectStartMasu correctStartMasu;
 
 
     // Start is called before the first frame update
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         rollingSaikoro = GetComponent<RollingSaikoro>();
         moveSelectedMasu = GetComponent<MoveSelectedMasu>();
         endingScript = GetComponent<EndingScript>();
+        correctStartMasu = GetComponent<CorrectStartMasu>();
     }
 
     // Update is called once per frame
@@ -97,9 +100,17 @@ public class GameManager : MonoBehaviourPunCallbacks
                 
                 }
                 break;
-            //全員初期位置移動
+
             case GameState.WaitingOthers:
-                m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitGame);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    //全員初期位置移動
+                    correctStartMasu.WaitingAllPlayers();
+                }
+                if (correctStartMasu.Ready == true)
+                {
+                    m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitGame);
+                }
                 break;
             //ゲーム開始
             case GameState.InitGame:

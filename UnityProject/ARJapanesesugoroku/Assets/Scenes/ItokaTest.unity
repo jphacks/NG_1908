@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &187131229
 Light:
   m_ObjectHideFlags: 0
@@ -707,9 +707,10 @@ GameObject:
   - component: {fileID: 618570586}
   - component: {fileID: 618570587}
   - component: {fileID: 618570589}
+  - component: {fileID: 618570590}
   m_Layer: 0
   m_Name: GameMaster
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,7 +734,14 @@ MonoBehaviour:
   GuestPanel: {fileID: 781148962}
   StartMasu: {fileID: 2360733887690302419, guid: 6e8a1143973446f45895163553779980,
     type: 3}
-  Masu: {fileID: 3733590025037656085, guid: f85423ad1d263c14f9ef91f73d256c30, type: 3}
+  Masus:
+  - {fileID: 3733590025037656085, guid: f85423ad1d263c14f9ef91f73d256c30, type: 3}
+  - {fileID: 6767470704631717280, guid: 279bb4832f3434287b07758841b8b4c2, type: 3}
+  - {fileID: 5034404489791369210, guid: 02db8145031aa491a831d2569acaea8c, type: 3}
+  - {fileID: 6216394925072657548, guid: a52072a4e561b424e9da4c8033bb4fe0, type: 3}
+  - {fileID: 832740709536283174, guid: 636da517289514a3d9fdcb2473884e87, type: 3}
+  - {fileID: 4539270243679508272, guid: b398f5c50527248b8a1318b30a38f55a, type: 3}
+  - {fileID: 4667356328287199166, guid: f14db0055af674980b3c1fc847dcad57, type: 3}
   GoalMasu: {fileID: 3664842660957010668, guid: 176a4bcc1bd6302439b1928093ea8a98,
     type: 3}
   MasuList: []
@@ -778,6 +786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugg: 1
   PlayerID: 
+  turnnumber: 0
 --- !u!114 &618570586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,7 +835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ready: 0
   flag: 0
-  SaikoroKit: {fileID: 0}
+  SaikoroKit: {fileID: 62754078565007244, guid: e2d9a7a0fa7e865409c023d918bf7684,
+    type: 3}
   MadeSaikoro: {fileID: 0}
   updicenumber: 0
 --- !u!114 &618570589
@@ -846,6 +856,18 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &618570590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618570581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5e9987b1fb2eb4ca4b3e31cb5b1fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &623678552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1765,7 +1787,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458108768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 

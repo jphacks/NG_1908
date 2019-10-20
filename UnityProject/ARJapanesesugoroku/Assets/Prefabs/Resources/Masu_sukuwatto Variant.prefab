@@ -242,6 +242,7 @@ MonoBehaviour:
   startbutton: {fileID: 0}
   endbutton: {fileID: 0}
   manimator: {fileID: 413035505}
+  startTurn: 100000
 --- !u!114 &4012002005730208935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +260,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

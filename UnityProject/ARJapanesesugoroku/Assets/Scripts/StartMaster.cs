@@ -9,7 +9,6 @@ public class StartMaster : MonoBehaviourPunCallbacks
     /// <summary>
     /// Photonに接続するところまで実装
     /// </summary>
-    public GameObject StartButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,11 @@ public class StartMaster : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("OnJoinedLobby");
-        //Lobbyに入ったらボタンを起動
-        StartButton.SetActive(true);
+        PhotonNetwork.JoinOrCreateRoom("room", new RoomOptions(),TypedLobby.Default);
+        
+    }
+    public override void OnCreatedRoom()
+    {
+        Debug.Log("CreateRoom");
     }
 }

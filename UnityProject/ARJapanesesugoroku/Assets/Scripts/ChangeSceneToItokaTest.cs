@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeSceneToWaitScene : MonoBehaviour
+public class ChangeSceneToItokaTest : MonoBehaviour
 {
     public void PushDown()
     {
-        SceneManager.LoadScene("WaitScene");
+        SceneManager.LoadScene("ItokaTest");
     }
     // Start is called before the first frame update
     void Start()
