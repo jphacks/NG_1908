@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class skip : Masu
+public class dance : Masu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -22,7 +22,7 @@ public class skip : Masu
     public override void sukustart()
     {
         manimator.SetInteger("large", 6);
-        text.text = "次の人スキップ";
+        text.text = "ミライ小町と踊ろう！！";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }

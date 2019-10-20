@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class　threechar : Masu
+public class strangepose : Masu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -21,8 +21,8 @@ public class　threechar : Masu
     }
     public override void sukustart()
     {
-        manimator.SetInteger("large", 5);
-        text.text = "これから3文字だけで話そう！";
+        manimator.SetInteger("large", 3);
+        text.text = "1ターン変なポーズ！";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }
