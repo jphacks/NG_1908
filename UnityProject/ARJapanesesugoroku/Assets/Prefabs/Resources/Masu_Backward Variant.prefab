@@ -242,6 +242,27 @@ MonoBehaviour:
   startbutton: {fileID: 0}
   endbutton: {fileID: 0}
   manimator: {fileID: 706629506}
+--- !u!114 &739816988592508005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767470704631717280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &6041826620921503976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 1022883969221918024, guid: ad59096073839e44990611d965fbcfbe,
         type: 3}
       propertyPath: m_Name
-      value: Masu_Backward
+      value: Masu_Backward Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4064879455510663003, guid: ad59096073839e44990611d965fbcfbe,
         type: 3}
