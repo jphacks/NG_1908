@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class yasumi : MonoBehaviour
+public class yasumi : Masu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -19,14 +19,14 @@ public class yasumi : MonoBehaviour
     {
 
     }
-    public void sukustart()
+    public override void sukustart()
     {
         manimator.SetInteger("large", 3);
         text.text = "1回やすみ";
         startbutton.gameObject.SetActive(false);
         endbutton.gameObject.SetActive(true);
     }
-    public void sukuend()
+    public override void sukuend()
     {
         endbutton.gameObject.SetActive(false);
         text.text = "おつかれ!";

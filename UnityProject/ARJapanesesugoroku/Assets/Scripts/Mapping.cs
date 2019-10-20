@@ -26,9 +26,10 @@ public class Mapping : MonoBehaviour
     //スタートマス
     public GameObject StartMasu;
     //通常マス
-    public GameObject Masu;
+    public GameObject[] Masus;
     //ゴールマス
     public GameObject GoalMasu;
+    
     //ゴールマス生成用に一時的に記憶しておく
     private GameObject tmpMasu;
     //配置されたマスのリスト
@@ -48,9 +49,12 @@ public class Mapping : MonoBehaviour
         {
             Vector3 myposition = MyKoma.GetComponent<Transform>().position;
             Vector3 distance = myposition - tmpposition;
+            
+            int r = Random.Range(0, Masus.Length-1);
+            GameObject Masu = Masus[r];
             if (distance.magnitude >= 1.5)
             {
-                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down, Quaternion.identity);
+                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down*1.5f, Quaternion.identity);
                 tmpposition = myposition;
             }
         }
@@ -71,7 +75,7 @@ public class Mapping : MonoBehaviour
         StartButton.SetActive(false);
         EndButton.SetActive(true);
         //スタートマスを置く
-        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down,Quaternion.identity);
+        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down*1.5f,Quaternion.identity);
         creatingflag = true;
     }
     //エンドボタンを押したらマップを作り終わる
@@ -81,7 +85,7 @@ public class Mapping : MonoBehaviour
         {
             tmpposition = tmpMasu.transform.position;
             Destroy(tmpMasu);
-            PhotonNetwork.Instantiate(GoalMasu.name, tmpposition + Vector3.down, Quaternion.identity);
+            PhotonNetwork.Instantiate(GoalMasu.name, tmpposition, Quaternion.identity);
             MasuList = GameObject.FindGameObjectsWithTag("Masu");
             Debug.Log(string.Join(", ", MasuList.Select(obj => obj.ToString())));
             EndButton.SetActive(false);
