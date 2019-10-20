@@ -54,7 +54,7 @@ public class Mapping : MonoBehaviour
             GameObject Masu = Masus[r];
             if (distance.magnitude >= 1.5)
             {
-                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down*1.5f, Quaternion.identity);
+                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down*2f, Quaternion.identity);
                 tmpposition = myposition;
             }
         }
@@ -75,7 +75,7 @@ public class Mapping : MonoBehaviour
         StartButton.SetActive(false);
         EndButton.SetActive(true);
         //スタートマスを置く
-        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down*1.5f,Quaternion.identity);
+        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down*2f,Quaternion.identity);
         creatingflag = true;
     }
     //エンドボタンを押したらマップを作り終わる
