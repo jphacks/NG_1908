@@ -1,8 +1,8 @@
-#ARすごろく
+# ARすごろく
 [![Product Name](image.png)](https://youtu.be/k-4J6uWMKkg)
 
 ## 製品説明
-### X Tech（X → 今回皆さんが選定した好きな言葉に書き換えてください）
+### X Tech
 放課後のアソビ × tech
 
 ### 背景（製品開発のきっかけ、課題等）
