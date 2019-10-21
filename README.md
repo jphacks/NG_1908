@@ -46,6 +46,7 @@ AR技術は他のゲームにも応用可能であるので、スゴロク以外
 
 ## 開発内容・開発技術
 unity,ARKit2,photon,Node.js
+![Technology](ARSugoroku_Technology.png)
 
 ### 活用した技術
 #### API・データ
