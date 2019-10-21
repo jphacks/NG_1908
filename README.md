@@ -1,5 +1,5 @@
 # ARすごろく
-[![Product Name](image.png)](https://youtu.be/k-4J6uWMKkg)
+[![Product Name](サムネ.png)](https://youtu.be/k-4J6uWMKkg)
 
 ## 製品説明
 ### X Tech
@@ -54,7 +54,6 @@ unity,ARKit2,photon,Node.js
 #### デバイス
 * iphone
 
-イベント
 ### 独自開発技術（Hack Dayで開発したもの）
 #### 2日間に開発した独自の機能・技術
 - AR空間で歩いたところにマスを生成する技術
