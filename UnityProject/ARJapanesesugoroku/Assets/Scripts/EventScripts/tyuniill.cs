@@ -24,12 +24,12 @@ public class tyuniill : Masu
     {
         manimator.SetInteger("large" ,1);
         text.text = "これから中二病になれ！";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
     }
     public override void sukuend()
     {
-        endbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(false);
         text.text = "おつかれ！";
     }
 }

@@ -31,12 +31,12 @@ public class sukuwatto : Masu
     {
         manimator.SetInteger("large", 2);
         text.text = "10スクワットしろ！";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
     }
     public override void sukuend()
     {
-        endbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(false);
         text.text = "おつかれ!";
     }
 }

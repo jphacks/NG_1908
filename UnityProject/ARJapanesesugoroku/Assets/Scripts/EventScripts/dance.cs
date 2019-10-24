@@ -23,12 +23,12 @@ public class dance : Masu
     {
         manimator.SetInteger("large", 6);
         text.text = "ミライ小町と踊ろう！！";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
     }
     public override void sukuend()
     {
-        endbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(false);
         text.text = "おつかれ!";
     }
 }

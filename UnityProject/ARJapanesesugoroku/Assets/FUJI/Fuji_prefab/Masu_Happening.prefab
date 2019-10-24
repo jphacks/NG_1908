@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 586184317}
   m_Layer: 0
   m_Name: Masu_Happening
-  m_TagString: Untagged
+  m_TagString: Masu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,7 +338,7 @@ Transform:
   m_GameObject: {fileID: 7698079941129485738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.83, y: -0.4, z: 0.16}
-  m_LocalScale: {x: 0.18, y: 1, z: 0.18}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_Children:
   - {fileID: 5675357046159962775}
   - {fileID: 7794467163608729315}

@@ -31,13 +31,13 @@ public class kataashi : Masu
     {
         manimator.SetInteger("large", 7);
         text.text = "1ターン片足立ち！";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
         startTurn = gameManager.turnnumber;
     }
     public override void sukuend()
     {
-        endbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(false);
         text.text = "おつかれ!";
     }
 }

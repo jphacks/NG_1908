@@ -43,7 +43,8 @@ public class RollingSaikoro : MonoBehaviour
     }
     public void RollSaikoro()
     {
-        MadeSaikoro = PhotonNetwork.Instantiate(SaikoroKit.name,new Vector3 (0,0,0),Quaternion.identity);
+        Quaternion rot = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+        MadeSaikoro = PhotonNetwork.Instantiate(SaikoroKit.name,Camera.main.transform.position, rot);
         judgeupnumber = MadeSaikoro.GetComponentInChildren<JugdeUpNumber>();
         /*Instantiate(Ground, new Vector3(0, -6, 0), Quaternion.identity);
         Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity,RollCanvas.transform);*/

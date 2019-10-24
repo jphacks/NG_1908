@@ -23,12 +23,12 @@ public class　modoru : Masu
     {
         manimator.SetInteger("large", 5);
         text.text = "1もどる";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
     }
     public override void sukuend()
     {
-        endbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(false);
         text.text = "おつかれ!";
     }
 }

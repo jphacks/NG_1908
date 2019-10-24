@@ -276,6 +276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Masu_Forward Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7896229631580625756, guid: 200fce5e0d67a9d47b981e117d235c96,
+        type: 3}
+      propertyPath: m_TagString
+      value: Masu
+      objectReference: {fileID: 0}
     - target: {fileID: 6615316004829407567, guid: 200fce5e0d67a9d47b981e117d235c96,
         type: 3}
       propertyPath: m_LocalPosition.x

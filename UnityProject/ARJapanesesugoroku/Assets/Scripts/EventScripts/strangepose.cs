@@ -23,12 +23,12 @@ public class strangepose : Masu
     {
         manimator.SetInteger("large", 3);
         text.text = "1ターン変なポーズ！";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
     }
     public override void sukuend()
     {
-        endbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(false);
         text.text = "おつかれ!";
     }
 }
