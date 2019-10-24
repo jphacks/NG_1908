@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using Photon.Realtime;
 
 public class RollingSaikoro : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class RollingSaikoro : MonoBehaviour
             {
                 updicenumber = judgeupnumber.UpDiceNumber;
                 Ready = true;
-                Destroy(MadeSaikoro);
+                PhotonNetwork.Destroy(MadeSaikoro);
                 /*Destroy(Ground);
                 Destroy(ThroughDiceButton);*/
                 flag = false;

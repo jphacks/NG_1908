@@ -85,7 +85,7 @@ public class Mapping : MonoBehaviour
         if (tmpMasu.transform.position!=null)
         {
             tmpposition = tmpMasu.transform.position;
-            Destroy(tmpMasu);
+            PhotonNetwork.Destroy(tmpMasu);
             PhotonNetwork.Instantiate(GoalMasu.name, tmpposition, Quaternion.identity);
             MasuList = GameObject.FindGameObjectsWithTag("Masu");
             Debug.Log(string.Join(", ", MasuList.Select(obj => obj.ToString())));
