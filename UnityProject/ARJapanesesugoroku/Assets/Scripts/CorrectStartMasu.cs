@@ -17,7 +17,7 @@ public class CorrectStartMasu : MonoBehaviour
             objectdistance = new Vector3[PhotonNetwork.PlayerList.Length];
             Vector3 startposition = GameObject.FindWithTag("StartMasu").GetComponent<Transform>().position;
             //全プレイヤーのリスト
-            List<GameObject> allobjectList = null;
+            List<GameObject> allobjectList = new List<GameObject>();
             //以下オブジェクトをFindして全体リストへ追加
             GameObject[] playerobjectArray= GameObject.FindGameObjectsWithTag("Player");
             allobjectList.AddRange(playerobjectArray);
