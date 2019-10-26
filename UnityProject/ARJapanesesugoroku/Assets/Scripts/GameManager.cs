@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     private int nextplayerID;
     //ターン数
     public int turnnumber=0;
+    //プレイヤーオブジェクト
+    public GameObject Koma;
+    //ARカメラオブジェクト
+    public GameObject ARCamera;
     
     //マッピングのクラス
     private Mapping mapping;
@@ -44,6 +48,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     private CorrectStartMasu correctStartMasu;
 
 
+    private void Awake()
+    {
+        string MyKomaname = Koma.name;
+        if (PhotonNetwork.InRoom)
+        {
+            GameObject MyKoma = PhotonNetwork.Instantiate(MyKomaname, new Vector3(0, 0, 0), Quaternion.identity);
+            MyKoma.transform.parent = ARCamera.transform;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -63,11 +63,13 @@ public class Mapping : MonoBehaviour
     public void CreateMapping()
     {
         StartButton.SetActive(true);
-        HostPaneru.SetActive(true);
+        //ホストパネルは必要になったら使う
+        //HostPaneru.SetActive(true);
     }
     public void WaitingMapping()
     {
-        GuestPanel.SetActive(true);
+        //ゲストパネルは必要になったら使う
+        //GuestPanel.SetActive(true);
     }
     //スタートボタンを押したらマップを作り始める
     public void OnClickStartButton()
