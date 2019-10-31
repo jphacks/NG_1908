@@ -74,12 +74,13 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     syokiKaisiButton.SetButton();
+                    if (syokiKaisiButton.Ready)
+                    {
+                        m_photonView.RPC("RPCSetPlayerObject", RpcTarget.All);
+                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMapping);
+                    }
                 }
-                if (syokiKaisiButton.Ready)
-                {
-                    m_photonView.RPC("RPCSetPlayerObject",RpcTarget.All);
-                    gameState = GameState.InitMapping;
-                }
+  
                 break;
             //マップ生成開始
             case GameState.InitMapping:

@@ -15,7 +15,7 @@ public class MoveSelectedMasu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MyKoma = GameObject.FindWithTag("Player");
+       
     }
 
     // Update is called once per frame
@@ -45,6 +45,7 @@ public class MoveSelectedMasu : MonoBehaviour
     }
     public int MasuSelect(int dicenumber, int mynumber,GameObject[]Masulist)
     {
+        MyKoma = GameObject.FindWithTag("Player");
         mynumber += dicenumber;
         if (mynumber >= Masulist.Length)
         {

@@ -39,7 +39,7 @@ public class Mapping : MonoBehaviour
     void Start()
     {
         Ready = false;
-        MyKoma = GameObject.FindWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -62,6 +62,8 @@ public class Mapping : MonoBehaviour
     }
     public void CreateMapping()
     {
+        MyKoma = GameObject.FindWithTag("Player");
+        Debug.Log(MyKoma.name);
         StartButton.SetActive(true);
         //ホストパネルは必要になったら使う
         //HostPaneru.SetActive(true);
