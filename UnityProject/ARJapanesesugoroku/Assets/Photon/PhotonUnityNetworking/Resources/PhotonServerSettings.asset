@@ -39,5 +39,6 @@ MonoBehaviour:
   - RPCDebug
   - RPCSetWorldMap
   - RPCSetPlayerID
+  - RPCSetPlayerObject
   DisableAutoOpenWizard: 1
   ShowSettings: 1

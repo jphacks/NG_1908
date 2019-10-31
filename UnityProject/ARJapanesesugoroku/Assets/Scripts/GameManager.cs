@@ -33,7 +33,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject Koma;
     //ARカメラオブジェクト
     public GameObject ARCamera;
-    
+
+    //初期の開始ボタン
+    private SyokiKaisiButton syokiKaisiButton;
     //マッピングのクラス
     private Mapping mapping;
     //ゲームプレイ中のクラス
@@ -48,19 +50,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     private CorrectStartMasu correctStartMasu;
 
 
-    private void Awake()
-    {
-        string MyKomaname = Koma.name;
-        if (PhotonNetwork.InRoom)
-        {
-            GameObject MyKoma = PhotonNetwork.Instantiate(MyKomaname, new Vector3(0, 0, 0), Quaternion.identity);
-            MyKoma.transform.parent = ARCamera.transform;
-        }
-    }
+ 
     // Start is called before the first frame update
     void Start()
     {
         m_photonView = GetComponent<PhotonView>();
+        syokiKaisiButton = GetComponent<SyokiKaisiButton>();
         mapping = GetComponent<Mapping>();
         playerTurnMoving = GetComponent<PlayerTurnMoving>();
         rollingSaikoro = GetComponent<RollingSaikoro>();
@@ -76,9 +71,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         switch (gameState)
         {
             case GameState.Idle:
-                if (debugg == true)
+                if (syokiKaisiButton.Ready)
                 {
-                    Debug.Log("A");
+                    m_photonView.RPC("RPCSetPlayerObject",RpcTarget.All);
                     gameState = GameState.InitMapping;
                 }
                 break;
@@ -266,5 +261,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void RPCSetPlayerID(string setid)
     {
         PlayerID = setid;
+    }
+    [PunRPC]
+    public void RPCSetPlayerObject()
+    {
+        string MyKomaname = Koma.name;
+        GameObject MyKoma = PhotonNetwork.Instantiate(MyKomaname, new Vector3(0, 0, 0), Quaternion.identity);
+        MyKoma.transform.parent = ARCamera.transform;
     }
 }
