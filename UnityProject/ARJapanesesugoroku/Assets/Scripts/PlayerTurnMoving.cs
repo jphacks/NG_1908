@@ -27,7 +27,12 @@ public class PlayerTurnMoving : MonoBehaviourPunCallbacks
         {
             allplayersID[i] = PhotonNetwork.PlayerList[i].UserId;
         }*/
-        
+
+        Debug.Log(allplayers[0].UserId);
+        Debug.Log(allplayers[1].UserId);
+        Debug.Log(PhotonNetwork.PlayerList[1].UserId);
+        Debug.Log(PhotonNetwork.PlayerListOthers[0].UserId);
+
         //プレイヤーリストをシャッフル
         for (int i = 0; i < allplayers.Length; i++)
         {
@@ -36,6 +41,9 @@ public class PlayerTurnMoving : MonoBehaviourPunCallbacks
             allplayers[i] = allplayers[playernumber];
             allplayers[playernumber] = tmp;
         }
+        Debug.Log(allplayers[0].UserId);
+        Debug.Log(allplayers[1].UserId);
+
         for (int i = 0; i < PhotonNetwork.CurrentRoom.Players.Count; i++)
         {
             allplayersID[i] = allplayers[i].UserId;

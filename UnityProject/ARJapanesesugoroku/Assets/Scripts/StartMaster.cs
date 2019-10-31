@@ -26,7 +26,9 @@ public class StartMaster : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("OnJoinedLobby");
-        PhotonNetwork.JoinOrCreateRoom("room", new RoomOptions(),TypedLobby.Default);
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.PublishUserId = true;
+        PhotonNetwork.JoinOrCreateRoom("room", roomOptions,TypedLobby.Default);
         
     }
     public override void OnCreatedRoom()

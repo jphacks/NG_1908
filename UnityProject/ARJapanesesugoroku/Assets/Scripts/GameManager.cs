@@ -129,6 +129,9 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     PlayerList = playerTurnMoving.InitGame();
+                    Debug.Log(PlayerList);
+                    Debug.Log(PlayerList.Length);
+                    Debug.Log(PlayerList[1]);
                     m_photonView.RPC("RPCSetPlayerID",RpcTarget.All,PlayerList);
                 }
                 gameState = GameState.PlayingGame;
