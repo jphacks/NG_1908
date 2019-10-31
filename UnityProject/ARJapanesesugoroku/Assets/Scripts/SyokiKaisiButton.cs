@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class SyokiKaisiButton : MonoBehaviour
 {
+    public GameObject KaisiButton;
     public bool Ready = false;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,15 @@ public class SyokiKaisiButton : MonoBehaviour
     public void OnClick()
     {
         Ready = true;
-        PhotonNetwork.Destroy(gameObject);
+        Destroy(KaisiButton);
     }
+    public void SetButton()
+    {
+        if (Ready == false)
+        {
+            KaisiButton.SetActive(true);
+        }
+
+    }
+
 }

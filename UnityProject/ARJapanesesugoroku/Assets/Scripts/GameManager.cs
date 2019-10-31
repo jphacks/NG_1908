@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         switch (gameState)
         {
             case GameState.Idle:
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    syokiKaisiButton.SetButton();
+                }
                 if (syokiKaisiButton.Ready)
                 {
                     m_photonView.RPC("RPCSetPlayerObject",RpcTarget.All);
