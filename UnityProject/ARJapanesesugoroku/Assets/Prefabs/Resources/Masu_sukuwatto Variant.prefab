@@ -330,20 +330,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1696773583, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+    - target: {fileID: 4677505241762898218, guid: 580b291bc3256954abe9f329df99a34a,
+        type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2036155753, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 3420568896408455825, guid: 580b291bc3256954abe9f329df99a34a,
-        type: 3}
+    - target: {fileID: 1696773583, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4677505241762898218, guid: 580b291bc3256954abe9f329df99a34a,
+    - target: {fileID: 3420568896408455825, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_RootOrder
       value: 6

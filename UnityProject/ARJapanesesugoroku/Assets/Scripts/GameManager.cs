@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                     
                         //マスを取得
                         MasuList = mapping.MasuList;
+                        //これじゃダメだった 
+                        //m_photonView.RPC("RPCSetMasuObject", RpcTarget.All,MasuList );
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.WaitingOthers);
                     }
                 
@@ -129,10 +131,15 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     PlayerList = playerTurnMoving.InitGame();
-                    Debug.Log(PlayerList);
+                   /* Debug.Log(PlayerList);
                     Debug.Log(PlayerList.Length);
-                    Debug.Log(PlayerList[1]);
+                    Debug.Log(PlayerList[1]);*/
                     m_photonView.RPC("RPCSetPlayerID",RpcTarget.All,PlayerList);
+                }
+                else
+                {
+                    //ここでマスタークライアント以外はマスリストを取得
+                    MasuList = MasuList = GameObject.FindGameObjectsWithTag("Masu");
                 }
                 gameState = GameState.PlayingGame;
                 break;
@@ -276,5 +283,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         string MyKomaname = Koma.name;
         GameObject MyKoma = PhotonNetwork.Instantiate(MyKomaname, new Vector3(0, 0, 0), Quaternion.identity);
         MyKoma.transform.parent = ARCamera.transform;
+    }
+    [PunRPC]
+    public void RPCSetMasuObject(GameObject[] setMasuList)
+    {
+        MasuList = setMasuList;
     }
 }
