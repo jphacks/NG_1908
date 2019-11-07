@@ -273,9 +273,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void RPCSetPlayerID(string setid)
+    public void RPCSetPlayerID(string[] setid)
     {
-        PlayerID = setid;
+        PlayerList = setid;
     }
     [PunRPC]
     public void RPCSetPlayerObject()
