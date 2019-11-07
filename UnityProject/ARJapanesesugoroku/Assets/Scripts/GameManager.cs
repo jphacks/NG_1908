@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                    /* Debug.Log(PlayerList);
                     Debug.Log(PlayerList.Length);
                     Debug.Log(PlayerList[1]);*/
-                    m_photonView.RPC("RPCSetPlayerID",RpcTarget.All,PlayerList);
+                    m_photonView.RPC("RPCSetPlayerList",RpcTarget.All,PlayerList);
                 }
                 else
                 {
@@ -271,9 +271,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         gameState = setState;
     }
-
+    //ターンプレイヤーのIDを共有
     [PunRPC]
-    public void RPCSetPlayerID(string[] setid)
+    public void RPCSetPlayerID(string setid)
+    {
+        PlayerID = setid;
+    }
+    //プレイヤーのリストを共有
+    [PunRPC]
+    public void RPCSetPlayerList(string[] setid)
     {
         PlayerList = setid;
     }
