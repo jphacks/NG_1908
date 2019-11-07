@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7523009733705153637}
   - component: {fileID: 751027848535071239}
+  - component: {fileID: 8780914275166786450}
   m_Layer: 0
   m_Name: DiceKit
   m_TagString: Untagged
@@ -52,10 +53,25 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 8780914275166786450}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8780914275166786450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62754078565007244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!114 &1603981735988105326
 MonoBehaviour:
   m_ObjectHideFlags: 0
