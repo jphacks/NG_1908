@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 else
                 {
                     //ここでマスタークライアント以外はマスリストを取得
-                    MasuList = MasuList = GameObject.FindGameObjectsWithTag("Masu");
+                    MasuList = GameObject.FindGameObjectsWithTag("Masu");
                 }
                 gameState = GameState.PlayingGame;
                 break;
