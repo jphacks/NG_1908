@@ -71,13 +71,39 @@ public class FUJI_DiceRoll : MonoBehaviour
     }
     void FUJI_DiceCheck()
     {
-        //古い位置と新しい位置とを登録し、その距離が0.1以下なら止まったと判定。
+        //古い位置と新しい位置とを格納し、その距離が0.1以下なら止まったと判定。
         FUJI_Dice_OldPosition = FUJI_Dice_NewPosition;
         FUJI_Dice_NewPosition = transform.position;
         if ((FUJI_Dice_NewPosition - FUJI_Dice_OldPosition).magnitude < 0.1)
         {
-            //上の目が何か判定　Raycastを上から照射か、角度Quortanion
-            Debug.Log("Check");
+            //上の目が何か判定　TransformDirection
+            Vector3 FUJI_Check16 = transform.TransformDirection(Vector3.up);
+            Vector3 FUJI_Check25 = transform.TransformDirection(Vector3.forward);
+            Vector3 FUJI_Check43 = transform.TransformDirection(Vector3.right);
+            if(Mathf.Round(FUJI_Check16.y) == 1)
+            {
+                Debug.Log(1);
+            }
+            else if(Mathf.Round(FUJI_Check16.y) == -1)
+            {
+                Debug.Log(6);
+            }
+            else if (Mathf.Round(FUJI_Check25.y) == 1)
+            {
+                Debug.Log(2);
+            }
+            else if (Mathf.Round(FUJI_Check25.y) == -1)
+            {
+                Debug.Log(5);
+            }
+            else if (Mathf.Round(FUJI_Check43.y) == 1)
+            {
+                Debug.Log(4);
+            }
+            else if (Mathf.Round(FUJI_Check43.y) == -1)
+            {
+                Debug.Log(3);
+            }
         }
 
     }
