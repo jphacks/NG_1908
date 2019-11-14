@@ -54,8 +54,11 @@ public class FUJI_DiceRoll : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            FUJI_ThrewDice = true;
-            FUJI_ReleaseDice();
+            if (FUJI_ThrewDice == false)
+            {
+                FUJI_ThrewDice = true;
+                FUJI_ReleaseDice();
+            }
         }
     }
     public void FUJI_RollDice()
@@ -71,7 +74,7 @@ public class FUJI_DiceRoll : MonoBehaviour
     }
     void FUJI_DiceCheck()
     {
-        //古い位置と新しい位置とを格納し、その距離が0.1以下なら止まったと判定。
+        //古い位置と新しい位置とを格納し、その距離が0.1未満なら止まったと判定。
         FUJI_Dice_OldPosition = FUJI_Dice_NewPosition;
         FUJI_Dice_NewPosition = transform.position;
         if ((FUJI_Dice_NewPosition - FUJI_Dice_OldPosition).magnitude < 0.1)
@@ -83,26 +86,32 @@ public class FUJI_DiceRoll : MonoBehaviour
             if(Mathf.Round(FUJI_Check16.y) == 1)
             {
                 Debug.Log(1);
+                transform.GetChild(1).gameObject.SetActive(true);
             }
             else if(Mathf.Round(FUJI_Check16.y) == -1)
             {
                 Debug.Log(6);
+                transform.GetChild(6).gameObject.SetActive(true);
             }
             else if (Mathf.Round(FUJI_Check25.y) == 1)
             {
                 Debug.Log(2);
+                transform.GetChild(2).gameObject.SetActive(true);
             }
             else if (Mathf.Round(FUJI_Check25.y) == -1)
             {
                 Debug.Log(5);
+                transform.GetChild(5).gameObject.SetActive(true);
             }
             else if (Mathf.Round(FUJI_Check43.y) == 1)
             {
                 Debug.Log(4);
+                transform.GetChild(4).gameObject.SetActive(true);
             }
             else if (Mathf.Round(FUJI_Check43.y) == -1)
             {
                 Debug.Log(3);
+                transform.GetChild(3).gameObject.SetActive(true);
             }
         }
 
