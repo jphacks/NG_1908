@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 7c8a222623f6b7846a2ddb0f20133704
   - enabled: 1
-    path: Assets/Scenes/WaitScene.unity
+    path: Assets/Scenes/MattingScene.unity
     guid: 356edfc4b7b10634896f70eca6feba2a
   - enabled: 1
     path: Assets/Scenes/MainScene.unity

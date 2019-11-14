@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class StartMaster : MonoBehaviourPunCallbacks
 {
-    /// <summary>
-    /// Photonに接続するところまで実装
-    /// </summary>
+    public string SceneName;  
     // Start is called before the first frame update
     void Start()
     {
-        //マスターサーバーに接続する
-        PhotonNetwork.ConnectUsingSettings();
+
     }
 
 
     public  override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster");
+        
+        SceneManager.LoadScene(SceneName);
         //マスターサーバーに接続したらLobbyに入る
-        PhotonNetwork.JoinLobby();
+        //PhotonNetwork.JoinLobby();
     }
     public override void OnJoinedLobby()
     {
@@ -34,5 +34,11 @@ public class StartMaster : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("CreateRoom");
+    }
+    public void OnClick()
+    {
+        //マスターサーバーに接続する
+        PhotonNetwork.ConnectUsingSettings();
+        
     }
 }
