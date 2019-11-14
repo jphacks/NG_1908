@@ -16,6 +16,7 @@ public class FUJI_DiceRoll : MonoBehaviour
     private float FUJI_RRV_Z;
     private Vector3 FUJI_Dice_OldPosition;
     private Vector3 FUJI_Dice_NewPosition;
+    public int FUJI_DiceResult = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class FUJI_DiceRoll : MonoBehaviour
         FUJI_RRV_Y = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_RRV_Z = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_DiceRB = GetComponent<Rigidbody>();
+        FUJI_DiceResult = 0;
     }
 
     // Update is called once per frame
@@ -87,31 +89,38 @@ public class FUJI_DiceRoll : MonoBehaviour
             {
                 Debug.Log(1);
                 transform.GetChild(1).gameObject.SetActive(true);
+                FUJI_DiceResult = 1;
+
             }
             else if(Mathf.Round(FUJI_Check16.y) == -1)
             {
                 Debug.Log(6);
                 transform.GetChild(6).gameObject.SetActive(true);
+                FUJI_DiceResult = 6;
             }
             else if (Mathf.Round(FUJI_Check25.y) == 1)
             {
                 Debug.Log(2);
                 transform.GetChild(2).gameObject.SetActive(true);
+                FUJI_DiceResult = 2;
             }
             else if (Mathf.Round(FUJI_Check25.y) == -1)
             {
                 Debug.Log(5);
                 transform.GetChild(5).gameObject.SetActive(true);
+                FUJI_DiceResult = 5;
             }
             else if (Mathf.Round(FUJI_Check43.y) == 1)
             {
                 Debug.Log(4);
                 transform.GetChild(4).gameObject.SetActive(true);
+                FUJI_DiceResult = 4;
             }
             else if (Mathf.Round(FUJI_Check43.y) == -1)
             {
                 Debug.Log(3);
                 transform.GetChild(3).gameObject.SetActive(true);
+                FUJI_DiceResult = 3;
             }
         }
 
