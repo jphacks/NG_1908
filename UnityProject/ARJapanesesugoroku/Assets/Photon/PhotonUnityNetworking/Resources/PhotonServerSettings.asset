@@ -41,5 +41,6 @@ MonoBehaviour:
   - RPCSetPlayerID
   - RPCSetPlayerObject
   - RPCSetMasuObject
+  - RPCSetPlayerList
   DisableAutoOpenWizard: 1
   ShowSettings: 1

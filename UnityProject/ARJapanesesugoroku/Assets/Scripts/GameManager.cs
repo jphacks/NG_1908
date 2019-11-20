@@ -134,12 +134,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                    /* Debug.Log(PlayerList);
                     Debug.Log(PlayerList.Length);
                     Debug.Log(PlayerList[1]);*/
-                    m_photonView.RPC("RPCSetPlayerID",RpcTarget.All,PlayerList);
+                    m_photonView.RPC("RPCSetPlayerList",RpcTarget.All,PlayerList);
                 }
                 else
                 {
                     //ここでマスタークライアント以外はマスリストを取得
-                    MasuList = MasuList = GameObject.FindGameObjectsWithTag("Masu");
+                    MasuList = GameObject.FindGameObjectsWithTag("Masu");
                 }
                 gameState = GameState.PlayingGame;
                 break;
@@ -271,11 +271,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         gameState = setState;
     }
-
+    //ターンプレイヤーのIDを共有
     [PunRPC]
     public void RPCSetPlayerID(string setid)
     {
         PlayerID = setid;
+    }
+    //プレイヤーのリストを共有
+    [PunRPC]
+    public void RPCSetPlayerList(string[] setid)
+    {
+        PlayerList = setid;
     }
     [PunRPC]
     public void RPCSetPlayerObject()
