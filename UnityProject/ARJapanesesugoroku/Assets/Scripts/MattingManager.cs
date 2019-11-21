@@ -54,6 +54,11 @@ public class MattingManager : MonoBehaviourPunCallbacks
     //クリックしたら部屋を作る
     public void OnClickCreateRoom()
     {
+        if (InputText.text == "")
+        {
+            Debug.LogError("textが空です");
+            return;
+        }
         string roomname = InputText.text;
         if (PhotonNetwork.InLobby)
         {
@@ -76,6 +81,11 @@ public class MattingManager : MonoBehaviourPunCallbacks
     //クリックしたら部屋に入る
     public void OnClickJoinedRoom()
     {
+        if (InputText.text == "")
+        {
+            Debug.LogError("textが空です");
+            return;
+        }
         string roomname = InputText.text;
         if (PhotonNetwork.InLobby)
         {
