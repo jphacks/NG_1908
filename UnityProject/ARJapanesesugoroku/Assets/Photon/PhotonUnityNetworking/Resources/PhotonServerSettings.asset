@@ -42,5 +42,7 @@ MonoBehaviour:
   - RPCSetPlayerObject
   - RPCSetMasuObject
   - RPCSetPlayerList
+  - RPCChangeScene
+  - RPCStartGame
   DisableAutoOpenWizard: 1
   ShowSettings: 1

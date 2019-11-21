@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
             //マップ生成開始
             case GameState.InitMapping:
-                //デバッグ用aaaaaaaaaaaa
                 if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("Initmapping");
