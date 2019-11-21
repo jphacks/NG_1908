@@ -22,7 +22,7 @@ public class FUJI_DiceRoll : MonoBehaviour
     void Start()
     {
         FUJI_Dice_OldPosition = transform.position;
-        PlayerCamera_Dice = GameObject.Find("Main Camera");
+        PlayerCamera_Dice = GameObject.FindWithTag("MainCamera");
         FUJI_RRV_X = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_RRV_Y = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_RRV_Z = UnityEngine.Random.Range(0.5f, 1) * 1000;
