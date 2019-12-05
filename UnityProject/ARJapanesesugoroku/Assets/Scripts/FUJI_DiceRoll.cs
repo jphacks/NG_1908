@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class FUJI_DiceRoll : MonoBehaviour
 {
@@ -17,17 +18,26 @@ public class FUJI_DiceRoll : MonoBehaviour
     private Vector3 FUJI_Dice_OldPosition;
     private Vector3 FUJI_Dice_NewPosition;
     public int FUJI_DiceResult = 0;
+    //ここから付け足したもの
+    //ボタンを押したかどうか判定
+    private bool ButtonDown;
+    //ボタンを離したかどうか判定
+    private bool ButtonUp;
+
+    private PhotonView m_photonView;
 
     // Start is called before the first frame update
     void Start()
     {
         FUJI_Dice_OldPosition = transform.position;
-        PlayerCamera_Dice = GameObject.Find("Main Camera");
+        PlayerCamera_Dice = GameObject.FindWithTag("MainCamera");
         FUJI_RRV_X = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_RRV_Y = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_RRV_Z = UnityEngine.Random.Range(0.5f, 1) * 1000;
         FUJI_DiceRB = GetComponent<Rigidbody>();
         FUJI_DiceResult = 0;
+
+        m_photonView = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -42,7 +52,7 @@ public class FUJI_DiceRoll : MonoBehaviour
                 FUJI_DiceCheck();
             }
         }
-        if (Input.GetKey(KeyCode.Space) && FUJI_ThrewDice == false)
+        if (ButtonDown==true && FUJI_ThrewDice == false)
         {
             FUJI_RollDice();
             FUJI_RandomCount += 1 * Time.deltaTime;
@@ -54,11 +64,12 @@ public class FUJI_DiceRoll : MonoBehaviour
                 FUJI_RandomCount = 0;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (ButtonUp==true)
         {
             if (FUJI_ThrewDice == false)
             {
                 FUJI_ThrewDice = true;
+                ButtonUp = false;
                 FUJI_ReleaseDice();
             }
         }
@@ -124,5 +135,22 @@ public class FUJI_DiceRoll : MonoBehaviour
             }
         }
 
+    }
+    public void DiceRollStart()
+    {
+        if (!m_photonView.IsMine)
+        {
+            return;
+        }
+        ButtonDown = true;
+    }
+    public void DiceRollFinish()
+    {
+        if (!m_photonView.IsMine)
+        {
+            return;
+        }
+        ButtonDown = false;
+        ButtonUp = true;
     }
 }

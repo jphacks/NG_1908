@@ -8,7 +8,7 @@ public class FUJI_DiceNumberLookAt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Camera = GameObject.Find("Main Camera");
+        Camera = GameObject.FindWithTag("MainCamera");
     }
 
     // Update is called once per frame

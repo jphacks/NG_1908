@@ -7,11 +7,14 @@ using Photon.Realtime;
 
 public class StartMaster : MonoBehaviourPunCallbacks
 {
-    public string SceneName;  
+    public string SceneName;
+    public GameObject obj_StartButton;
+    public GameObject obj_NowLoading;
     // Start is called before the first frame update
     void Start()
     {
-
+        obj_StartButton.SetActive(true);
+        obj_NowLoading.SetActive(false);
     }
 
 
@@ -20,25 +23,15 @@ public class StartMaster : MonoBehaviourPunCallbacks
         Debug.Log("OnConnectedToMaster");
         
         SceneManager.LoadScene(SceneName);
-        //マスターサーバーに接続したらLobbyに入る
-        //PhotonNetwork.JoinLobby();
+       
     }
-    public override void OnJoinedLobby()
-    {
-        Debug.Log("OnJoinedLobby");
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.PublishUserId = true;
-        PhotonNetwork.JoinOrCreateRoom("room", roomOptions,TypedLobby.Default);
-        
-    }
-    public override void OnCreatedRoom()
-    {
-        Debug.Log("CreateRoom");
-    }
+
+
     public void OnClick()
     {
         //マスターサーバーに接続する
         PhotonNetwork.ConnectUsingSettings();
-        
+        obj_StartButton.SetActive(false);
+        obj_NowLoading.SetActive(true);
     }
 }
