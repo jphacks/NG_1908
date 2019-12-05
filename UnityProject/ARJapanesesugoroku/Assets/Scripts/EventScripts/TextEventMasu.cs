@@ -5,12 +5,11 @@ using TMPro;
 
 public class TextEventMasu : EventMasu
 {
+    [SerializeField] string eventtxt;
+    public TextMeshPro text;
     public override void RaiseEvent()
     {
-        EndProcess();
+        text.text = eventtxt;
     }
-    public virtual void TextEvent()
-    {
 
-    }
 }
