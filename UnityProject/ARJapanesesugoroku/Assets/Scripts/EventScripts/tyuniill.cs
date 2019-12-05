@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class tyuniill : Masu
+public class tyuniill : EventMasu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -20,16 +20,13 @@ public class tyuniill : Masu
     {
 
     }
-    public override void sukustart()
+    public override void RaiseEvent()
     {
         manimator.SetInteger("large" ,1);
         text.text = "これから中二病になれ！";
         //startbutton.gameObject.SetActive(false);
         //endbutton.gameObject.SetActive(true);
+        EndProcess();
     }
-    public override void sukuend()
-    {
-        //endbutton.gameObject.SetActive(false);
-        text.text = "おつかれ！";
-    }
+
 }

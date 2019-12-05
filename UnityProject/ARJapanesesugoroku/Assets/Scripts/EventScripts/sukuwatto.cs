@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class sukuwatto : Masu
+public class sukuwatto : EventMasu
 {
     public  TextMeshPro text;
     public GameObject startbutton;
@@ -22,21 +22,18 @@ public class sukuwatto : Masu
     {
         if (gameManager.turnnumber - startTurn == 4)
         {
-            sukuend();
+            
             startTurn = 100000;
         }
     }
     
-    public override void sukustart()
+    public override void RaiseEvent()
     {
         manimator.SetInteger("large", 2);
         text.text = "10スクワットしろ！";
         //startbutton.gameObject.SetActive(false);
         //endbutton.gameObject.SetActive(true);
+        EndProcess();
     }
-    public override void sukuend()
-    {
-        //endbutton.gameObject.SetActive(false);
-        text.text = "おつかれ!";
-    }
+
 }

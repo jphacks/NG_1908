@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
                     //イベントせいぎょのしょり
-                    MasuList[mynumber-1].GetComponent<Masu>().sukustart();
+                    MasuList[mynumber-1].GetComponent<EventMasu>().RaiseEvent();
                 }
                 gameState = GameState.Event;
                 break;
@@ -241,17 +241,21 @@ public class GameManager : MonoBehaviourPunCallbacks
                     Debug.Log(mynumber);
                     Debug.Log(MasuList.Length);
                     Debug.Log(mynumber == MasuList.Length);
-                    //ここにターンプレイヤーがゴールにいるかどうか確認する
-                    if (mynumber == MasuList.Length)
+                    if (MasuList[mynumber - 1].GetComponent<EventMasu>().Ready == true)
                     {
-                        //次のステータスへ
-                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitFinishGame);
+                        //ここにターンプレイヤーがゴールにいるかどうか確認する
+                        if (mynumber == MasuList.Length)
+                        {
+                            //次のステータスへ
+                            m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitFinishGame);
+                        }
+                        else
+                        {
+                            //繰り返し
+                            m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
+                        }
                     }
-                    else
-                    {
-                        //繰り返し
-                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
-                    }
+
                 }
                 break;
             //ゲーム終了開始
