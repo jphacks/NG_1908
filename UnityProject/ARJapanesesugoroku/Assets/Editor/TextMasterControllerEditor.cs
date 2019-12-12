@@ -14,7 +14,8 @@ public class TextMasterControllerEditor : Editor
     public override void OnInspectorGUI()
     {
         TextMasterController textMasterController = target as TextMasterController;
-        Text go = EditorGUILayout.ObjectField("text", null, typeof(Text), true) as Text;
+        DrawDefaultInspector();
+
         var list = textMasterController.list;
         if (!isinitialized) InitializeList(list.Count);
         if (folding_List=EditorGUILayout.Foldout(folding_List,"List"))

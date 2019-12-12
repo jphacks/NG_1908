@@ -14,12 +14,14 @@ public class TextMasterController : MonoBehaviour
         if (main == true)
         {
             //Mainテキストの表示
-            UItext.text = list.Find(m => m.gameState == gameState).mainText;
+            TextMaster textMaster = list.Find(m => m.gameState == gameState);
+            UItext.text = textMaster != null ? textMaster.mainText : "";
         }
         else
         {
             //Othersテキストの表示
-            UItext.text = list.Find(m => m.gameState == gameState).othersText;
+            TextMaster textMaster = list.Find(m => m.gameState == gameState);
+            UItext.text = textMaster != null ? textMaster.othersText : "";
         }
     }
 
