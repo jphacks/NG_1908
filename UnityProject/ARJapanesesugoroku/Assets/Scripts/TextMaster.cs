@@ -6,13 +6,13 @@ using UnityEngine;
 public class TextMaster 
 {
     //stateとMainプレイヤー、それ以外のプレイヤーに表示するテキスト
-    public string state="";
+    public GameState gameState;
     public string mainText="";
     public string othersText="";
 
-    public TextMaster(string state, string mainText, string othersText)
+    public TextMaster(GameState state, string mainText, string othersText)
     {
-        state = this.state;
+        state = this.gameState;
         mainText = this.mainText;
         othersText = this.othersText;
     }

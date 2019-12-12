@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
 public class GameManager : MonoBehaviourPunCallbacks
 {
     //デバッグ用
@@ -12,7 +13,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
     private PhotonView m_photonView;
-    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
     //現在状態の把握
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private EndingScript endingScript;
     //人をスタートに集めるマス
     private CorrectStartMasu correctStartMasu;
-
+    //UIの表示クラス
+    private TextMasterController textMasterController;
 
  
     // Start is called before the first frame update
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         moveSelectedMasu = GetComponent<MoveSelectedMasu>();
         endingScript = GetComponent<EndingScript>();
         correctStartMasu = GetComponent<CorrectStartMasu>();
+        textMasterController = GetComponent<TextMasterController>();
     }
 
     // Update is called once per frame
