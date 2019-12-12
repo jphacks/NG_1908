@@ -43,12 +43,13 @@ public class MattingManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster2");
+        PhotonNetwork.JoinLobby();
 
     }
     public override void OnJoinedLobby()
     {
         Debug.Log("OnJoinedLobby");
-
+        
     }
 
     //クリックしたら部屋を作る

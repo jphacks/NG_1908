@@ -46,6 +46,7 @@ public class RollingSaikoro : MonoBehaviour
     {
         Quaternion rot = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
         MadeSaikoro = PhotonNetwork.Instantiate(SaikoroKit.name,Camera.main.transform.position, rot);
+
         FUJI_diceRoll = MadeSaikoro.GetComponentInChildren<FUJI_DiceRoll>();
         /*Instantiate(Ground, new Vector3(0, -6, 0), Quaternion.identity);
         Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity,RollCanvas.transform);*/
