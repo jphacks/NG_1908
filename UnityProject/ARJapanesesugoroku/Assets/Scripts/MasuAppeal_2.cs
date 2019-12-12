@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MasuAppeal : MonoBehaviour
+public class MasuAppeal_2 : MonoBehaviour
 {
     private Transform Cloud = null;
     private Material CloudPs;
