@@ -5001,9 +5001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Appeal: 0
   PlayerCame: 0
-  Speed: -0.15
-  StartScaleXZ: 1
-  Limit: 0.9
+  Speed: 1.5
 --- !u!114 &-7170213950117011421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5016,6 +5014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963fe862f04354b40be2da730e8aca87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ready: 0
 --- !u!1001 &4752492605992397432
 PrefabInstance:
   m_ObjectHideFlags: 0
