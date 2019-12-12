@@ -252,8 +252,10 @@ public class ARShareManager : MonoBehaviour
         //m_ARSessionOrigin.gameObject.transform.rotation = m_ARCamera.transform.rotation;
         //m_ARCamera.transform.rotation = Quaternion.identity;
         //m_ARSessionOrigin.gameObject.transform.eulerAngles = new Vector3(0, m_ARCamera.transform.eulerAngles.y, 0);
-        m_ARSessionOrigin.gameObject.transform.position = GameObject.FindWithTag("StartMasu").transform.position;
-        m_ARCamera.transform.localPosition = Vector3.zero;
+//        m_ARSessionOrigin.gameObject.transform.position = GameObject.FindWithTag("StartMasu").transform.position + Vector3.up;
+//        m_ARCamera.transform.localPosition = GameObject.FindWithTag("StartMasu").transform.position + Vector3.up;
+
+        m_ARSessionOrigin.gameObject.transform.position -= new Vector3(m_ARCamera.transform.position.x, 0, m_ARCamera.transform.position.z);
     }
 
     public void Rotate(int direction)
