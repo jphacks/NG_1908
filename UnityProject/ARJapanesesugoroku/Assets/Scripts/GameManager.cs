@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
 public class GameManager : MonoBehaviourPunCallbacks
 {
     //デバッグ用
@@ -12,7 +13,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
     private PhotonView m_photonView;
-    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
     //現在状態の把握
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private EndingScript endingScript;
     //人をスタートに集めるマス
     private CorrectStartMasu correctStartMasu;
-
+    //UIの表示クラス
+    private TextMasterController textMasterController;
 
  
     // Start is called before the first frame update
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         moveSelectedMasu = GetComponent<MoveSelectedMasu>();
         endingScript = GetComponent<EndingScript>();
         correctStartMasu = GetComponent<CorrectStartMasu>();
+        textMasterController = GetComponent<TextMasterController>();
     }
 
     // Update is called once per frame
@@ -79,6 +81,11 @@ public class GameManager : MonoBehaviourPunCallbacks
                         m_photonView.RPC("RPCSetPlayerObject", RpcTarget.All);
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMapping);
                     }
+                    textMasterController.IndicateText(gameState, true);
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
   
                 break;
@@ -101,6 +108,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.Mapping:
                 if (PhotonNetwork.IsMasterClient)
                 {
+                    textMasterController.IndicateText(gameState, true);
                     if (mapping.Ready==true)
                     {
                     
@@ -112,13 +120,22 @@ public class GameManager : MonoBehaviourPunCallbacks
                     }
                 
                 }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
+                }
                 break;
 
             case GameState.WaitingOthers:
                 if (PhotonNetwork.IsMasterClient)
                 {
+                    textMasterController.IndicateText(gameState, true);
                     //全員初期位置移動
                     correctStartMasu.WaitingAllPlayers();
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 if (correctStartMasu.Ready == true)
                 {
@@ -190,7 +207,11 @@ public class GameManager : MonoBehaviourPunCallbacks
                         Debug.Log(dicenumber);
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMovingToSquere);
                     }
-                 
+                    textMasterController.IndicateText(gameState, true);
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
             case GameState.InitMovingToSquere:
@@ -223,8 +244,13 @@ public class GameManager : MonoBehaviourPunCallbacks
                         }
 
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitEvent);
-                        }
+                    }
+                    textMasterController.IndicateText(gameState, true);
 
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
             case GameState.InitEvent:
@@ -255,7 +281,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                             m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
                         }
                     }
+                    textMasterController.IndicateText(gameState, true);
 
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
             //ゲーム終了開始
