@@ -10,6 +10,7 @@ using UnityEngine.XR.ARKit;
 using Photon.Pun;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.XR.ARSubsystems;
 
 [RequireComponent(typeof(ARRaycastManager))]
 public class ARShareManager : MonoBehaviour
@@ -19,7 +20,9 @@ public class ARShareManager : MonoBehaviour
     List<ARRaycastHit> hitResults = new List<ARRaycastHit>();
     ARRaycastManager raycastManager;
 
+    [SerializeField] private Camera m_ARCamera;
     [SerializeField] private ARSession m_ARSession;
+    [SerializeField] private ARSessionOrigin m_ARSessionOrigin;
     [SerializeField] private Text outPutText;
 
     [SerializeField] private Text outPutText2;
@@ -225,20 +228,36 @@ public class ARShareManager : MonoBehaviour
         if (ARWorldMap.TryDeserialize(worldmap_native, out out_worldmap))
         worldmap_native.Dispose();
             
-            if (out_worldmap.valid)
-            {
-                outPutText.text = "Deserialized successfully."; 
-                Debug.Log("Deserialized successfully.");
-            }
-            else
-            {
-                outPutText.text = "Data is not a valid ARWorldMap.";
-                Debug.LogError("Data is not a valid ARWorldMap.");
-            }
+        if (out_worldmap.valid)
+        {
+            outPutText.text = "Deserialized successfully."; 
+            Debug.Log("Deserialized successfully.");
+        }
+        else
+        {
+            outPutText.text = "Data is not a valid ARWorldMap.";
+            Debug.LogError("Data is not a valid ARWorldMap.");
+        }
 
         Debug.Log("Apply ARWorldMap to current session.");
         ARKitSessionSubsystem arKitSessionSubsystem = (ARKitSessionSubsystem) m_ARSession.subsystem;
         arKitSessionSubsystem.ApplyWorldMap(out_worldmap);
         outPutText.text = "Complete";
+    }
+
+    public void ResetZeroPoint()
+    {
+        //m_ARSessionOrigin.MakeContentAppearAt(m_ARCamera.transform, m_ARCamera.transform.rotation);
+        //m_ARSessionOrigin.gameObject.transform.position = m_ARCamera.transform.position;
+        //m_ARSessionOrigin.gameObject.transform.rotation = m_ARCamera.transform.rotation;
+        //m_ARCamera.transform.rotation = Quaternion.identity;
+        //m_ARSessionOrigin.gameObject.transform.eulerAngles = new Vector3(0, m_ARCamera.transform.eulerAngles.y, 0);
+        m_ARSessionOrigin.gameObject.transform.position = GameObject.FindWithTag("StartMasu").transform.position;
+        m_ARCamera.transform.localPosition = Vector3.zero;
+    }
+
+    public void Rotate(int direction)
+    {
+        m_ARSessionOrigin.gameObject.transform.eulerAngles += Vector3.up * direction;
     }
 }
