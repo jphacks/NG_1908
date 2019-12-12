@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd3cedc51ee4264b9a94847925bcd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ready: 0
   text: {fileID: 393501075}
   startbutton: {fileID: 0}
   endbutton: {fileID: 0}
@@ -9798,6 +9799,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Masu_skip Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+      propertyPath: Speed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6669350782611214265, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}

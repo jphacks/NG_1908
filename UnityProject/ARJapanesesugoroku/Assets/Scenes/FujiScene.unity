@@ -209,6 +209,11 @@ PrefabInstance:
       propertyPath: Speed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3733590025048684630, guid: f85423ad1d263c14f9ef91f73d256c30,
+        type: 3}
+      propertyPath: Appeal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1188764014, guid: f85423ad1d263c14f9ef91f73d256c30, type: 3}
       propertyPath: m_Enabled
       value: 0
