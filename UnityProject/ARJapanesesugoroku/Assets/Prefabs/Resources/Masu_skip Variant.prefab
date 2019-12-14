@@ -112,6 +112,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d301a230dd8147e4ab66064adbae5ddb, type: 2}
@@ -224,45 +226,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-900289718412815645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832740709536283174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 0
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &1092171173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832740709536283174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd3cedc51ee4264b9a94847925bcd46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ready: 0
-  text: {fileID: 393501075}
-  startbutton: {fileID: 0}
-  endbutton: {fileID: 0}
-  manimator: {fileID: 393501080}
 --- !u!1 &6593488500946589016
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,6 +4979,45 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-900289718412815645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832740709536283174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1092171173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832740709536283174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd3cedc51ee4264b9a94847925bcd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ready: 0
+  text: {fileID: 393501075}
+  startbutton: {fileID: 0}
+  endbutton: {fileID: 0}
+  manimator: {fileID: 393501080}
 --- !u!1 &7428257697406563139
 GameObject:
   m_ObjectHideFlags: 0
@@ -9800,10 +9802,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Masu_skip Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
-      propertyPath: Speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6669350782611214265, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9859,6 +9857,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+      propertyPath: Speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+      propertyPath: Cloud
+      value: 
+      objectReference: {fileID: 6074776794141169558}
     - target: {fileID: 3420568896408455825, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_RootOrder

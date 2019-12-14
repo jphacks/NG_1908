@@ -229,11 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8946cd0d3ae34f4dad51661c41187f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cloud: {fileID: 6861011349439645882}
   Appeal: 0
   PlayerCame: 0
   Speed: -0.15
-  StartScaleXZ: 1
-  Limit: 0.9
 --- !u!114 &-6581754429217042975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963fe862f04354b40be2da730e8aca87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ready: 0
 --- !u!1 &4948369171817709237
 GameObject:
   m_ObjectHideFlags: 0

@@ -291,7 +291,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
             //ゲーム終了開始
             case GameState.InitFinishGame:
-                endingScript.EndLoad();
+                if (mynumber == MasuList.Length) endingScript.WinLoad();
+                else endingScript.LoseLoad();
                 break;
             //ゲーム終了処理中
             case GameState.FinishGame:
@@ -323,6 +324,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         string MyKomaname = Koma.name;
         GameObject MyKoma = PhotonNetwork.Instantiate(MyKomaname, new Vector3(0, 0, 0), Quaternion.identity);
         MyKoma.transform.parent = ARCamera.transform;
+        MyKoma.transform.localPosition = Vector3.zero;
     }
     [PunRPC]
     public void RPCSetMasuObject(GameObject[] setMasuList)

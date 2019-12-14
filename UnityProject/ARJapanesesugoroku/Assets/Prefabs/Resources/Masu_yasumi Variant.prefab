@@ -112,6 +112,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d301a230dd8147e4ab66064adbae5ddb, type: 2}
@@ -9800,10 +9802,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Masu_yasumi Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
-      propertyPath: Speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6669350782611214265, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9859,6 +9857,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+      propertyPath: Speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 586184317, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+      propertyPath: Cloud
+      value: 
+      objectReference: {fileID: 1642514572272412752}
     - target: {fileID: 3420568896408455825, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_RootOrder

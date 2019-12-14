@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+[System.Serializable]
 public class TextMaster 
 {
     //stateとMainプレイヤー、それ以外のプレイヤーに表示するテキスト

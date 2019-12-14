@@ -13,7 +13,7 @@ public class StartMaster : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        obj_StartButton.SetActive(true);
+        //obj_StartButton.SetActive(true);
         obj_NowLoading.SetActive(false);
     }
 
@@ -31,7 +31,7 @@ public class StartMaster : MonoBehaviourPunCallbacks
     {
         //マスターサーバーに接続する
         PhotonNetwork.ConnectUsingSettings();
-        obj_StartButton.SetActive(false);
+        //obj_StartButton.SetActive(false);
         obj_NowLoading.SetActive(true);
     }
 }

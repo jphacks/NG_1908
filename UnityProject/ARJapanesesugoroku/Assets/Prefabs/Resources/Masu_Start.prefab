@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8946cd0d3ae34f4dad51661c41187f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cloud: {fileID: 4828422065455104012}
   Appeal: 0
   PlayerCame: 0
   Speed: 1.5

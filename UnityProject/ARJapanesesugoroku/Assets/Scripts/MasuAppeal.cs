@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MasuAppeal : MonoBehaviour
 {
+    [SerializeField]
     private Transform Cloud = null;
     private Material CloudPs;
     public bool Appeal = false;
@@ -19,7 +20,7 @@ public class MasuAppeal : MonoBehaviour
     {
         WaitingText = transform.Find("WaitingForPlayer").gameObject.GetComponent<MeshRenderer>();
         OKText = transform.Find("OK").gameObject.GetComponent<MeshRenderer>();
-        Cloud = this.transform.GetChild(4);
+//        Cloud = this.transform.GetChild(4);
         CloudPs = Cloud.gameObject.GetComponent<ParticleSystemRenderer>().material;
         red = CloudPs.color.r;
         green = CloudPs.color.g;
