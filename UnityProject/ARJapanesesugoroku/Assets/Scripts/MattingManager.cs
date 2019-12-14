@@ -23,6 +23,7 @@ public class MattingManager : MonoBehaviourPunCallbacks
     public GameObject obj_CurrentRoomMember;
     //MainScene
     public string mainSceneName;
+    public GameObject obj_ordertext;
     public void Start()
     {
         //フラグの初期化
@@ -78,6 +79,8 @@ public class MattingManager : MonoBehaviourPunCallbacks
         obj_JoinRoomButton.SetActive(false);
         obj_CurrentRoomMember.SetActive(true);
         obj_GameStartButton.SetActive(true);
+        Text ordertext = obj_ordertext.GetComponent<Text>();
+        ordertext.text = "マッチング中・・・";
     }
     //クリックしたら部屋に入る
     public void OnClickJoinedRoom()
@@ -102,6 +105,8 @@ public class MattingManager : MonoBehaviourPunCallbacks
         obj_CreateroomButton.SetActive(false);
         obj_JoinRoomButton.SetActive(false);
         obj_CurrentRoomMember.SetActive(true);
+        Text ordertext = obj_ordertext.GetComponent<Text>();
+        ordertext.text = "マッチング中・・・";
     }
     //クリックしたらゲームスタート(フラグ起動)
     public void OnClickStartGame()
