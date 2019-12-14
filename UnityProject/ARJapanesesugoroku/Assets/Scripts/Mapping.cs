@@ -39,7 +39,7 @@ public class Mapping : MonoBehaviour
     void Start()
     {
         Ready = false;
-        MyKoma = GameObject.FindWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -54,19 +54,24 @@ public class Mapping : MonoBehaviour
             GameObject Masu = Masus[r];
             if (distance.magnitude >= 1.5)
             {
-                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down*2f, Quaternion.identity);
+                Quaternion rot = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+                tmpMasu=PhotonNetwork.Instantiate(Masu.name, myposition + Vector3.down*1.1f, rot);
                 tmpposition = myposition;
             }
         }
     }
     public void CreateMapping()
     {
+        MyKoma = GameObject.FindWithTag("Player");
+        Debug.Log(MyKoma.name);
         StartButton.SetActive(true);
-        HostPaneru.SetActive(true);
+        //ホストパネルは必要になったら使う
+        //HostPaneru.SetActive(true);
     }
     public void WaitingMapping()
     {
-        GuestPanel.SetActive(true);
+        //ゲストパネルは必要になったら使う
+        //GuestPanel.SetActive(true);
     }
     //スタートボタンを押したらマップを作り始める
     public void OnClickStartButton()
@@ -75,7 +80,7 @@ public class Mapping : MonoBehaviour
         StartButton.SetActive(false);
         EndButton.SetActive(true);
         //スタートマスを置く
-        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down*2f,Quaternion.identity);
+        PhotonNetwork.Instantiate(StartMasu.name,tmpposition + Vector3.down*1.1f,Quaternion.identity);
         creatingflag = true;
     }
     //エンドボタンを押したらマップを作り終わる
@@ -84,7 +89,7 @@ public class Mapping : MonoBehaviour
         if (tmpMasu.transform.position!=null)
         {
             tmpposition = tmpMasu.transform.position;
-            Destroy(tmpMasu);
+            PhotonNetwork.Destroy(tmpMasu);
             PhotonNetwork.Instantiate(GoalMasu.name, tmpposition, Quaternion.identity);
             MasuList = GameObject.FindGameObjectsWithTag("Masu");
             Debug.Log(string.Join(", ", MasuList.Select(obj => obj.ToString())));

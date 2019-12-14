@@ -15,7 +15,7 @@ public class MoveSelectedMasu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MyKoma = GameObject.FindWithTag("Player");
+       
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class MoveSelectedMasu : MonoBehaviour
                 Vector3 targetdistance = MyKomaVector - targetvector;
                 //Debug.Log(targetdistance.magnitude);
                 //ターゲットマスとの距離が一定以下ならマスにのsったと判定
-                if (targetdistance.magnitude <= 1.5)
+                if (targetdistance.magnitude <= 1.1f)
                 {
                     //ここにマス目の効果付けの削除を描く
 
@@ -45,6 +45,7 @@ public class MoveSelectedMasu : MonoBehaviour
     }
     public int MasuSelect(int dicenumber, int mynumber,GameObject[]Masulist)
     {
+        MyKoma = GameObject.FindWithTag("Player");
         mynumber += dicenumber;
         if (mynumber >= Masulist.Length)
         {

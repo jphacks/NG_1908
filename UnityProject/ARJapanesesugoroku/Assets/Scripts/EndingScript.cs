@@ -20,4 +20,14 @@ public class EndingScript : MonoBehaviour
     {
         SceneManager.LoadScene("FinishScene");
     }
+
+    public void WinLoad()
+    {
+        SceneManager.LoadScene("WinScene");
+    }
+
+    public void LoseLoad()
+    {
+        SceneManager.LoadScene("LoseScene");
+    }
 }

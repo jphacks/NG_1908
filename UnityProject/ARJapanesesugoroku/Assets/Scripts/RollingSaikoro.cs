@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using Photon.Realtime;
 
 public class RollingSaikoro : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class RollingSaikoro : MonoBehaviour
     public GameObject ThroughDiceButton;
     public GameObject RollCanvas;*/
     public int updicenumber;
-    private JugdeUpNumber judgeupnumber;
+    //private JugdeUpNumber judgeupnumber;
+    private FUJI_DiceRoll FUJI_diceRoll;
     private Vector3 saikoropos;
     private Quaternion saikororot;
     // Start is called before the first frame update
@@ -30,11 +32,10 @@ public class RollingSaikoro : MonoBehaviour
         Ready = false;
         if (flag == true)
         {           
-            if (judgeupnumber.UpDiceNumber!=0)
+            if (FUJI_diceRoll.FUJI_DiceResult!=0)
             {
-                updicenumber = judgeupnumber.UpDiceNumber;
-                Ready = true;
-                Destroy(MadeSaikoro);
+                updicenumber = FUJI_diceRoll.FUJI_DiceResult;
+                StartCoroutine("DestroyDice");
                 /*Destroy(Ground);
                 Destroy(ThroughDiceButton);*/
                 flag = false;
@@ -43,11 +44,19 @@ public class RollingSaikoro : MonoBehaviour
     }
     public void RollSaikoro()
     {
-        MadeSaikoro = PhotonNetwork.Instantiate(SaikoroKit.name,new Vector3 (0,0,0),Quaternion.identity);
-        judgeupnumber = MadeSaikoro.GetComponentInChildren<JugdeUpNumber>();
+        Quaternion rot = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+        MadeSaikoro = PhotonNetwork.Instantiate(SaikoroKit.name,Camera.main.transform.position, rot);
+
+        FUJI_diceRoll = MadeSaikoro.GetComponentInChildren<FUJI_DiceRoll>();
         /*Instantiate(Ground, new Vector3(0, -6, 0), Quaternion.identity);
         Instantiate(ThroughDiceButton, new Vector3(0, 0, 0), Quaternion.identity,RollCanvas.transform);*/
         flag = true;
         
+    }
+    IEnumerator  DestroyDice()
+    {
+        yield return new WaitForSeconds(3f);
+        Ready = true;
+        PhotonNetwork.Destroy(MadeSaikoro);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class　threechar : Masu
+public class　threechar : EventMasu
 {
     public TextMeshPro text;
     public GameObject startbutton;
@@ -19,16 +19,12 @@ public class　threechar : Masu
     {
 
     }
-    public override void sukustart()
+    public override void RaiseEvent()
     {
         manimator.SetInteger("large", 5);
         text.text = "これから3文字だけで話そう！";
-        startbutton.gameObject.SetActive(false);
-        endbutton.gameObject.SetActive(true);
-    }
-    public override void sukuend()
-    {
-        endbutton.gameObject.SetActive(false);
-        text.text = "おつかれ!";
+        //startbutton.gameObject.SetActive(false);
+        //endbutton.gameObject.SetActive(true);
+        EndProcess();
     }
 }

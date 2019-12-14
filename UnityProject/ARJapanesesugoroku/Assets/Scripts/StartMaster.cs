@@ -1,36 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class StartMaster : MonoBehaviourPunCallbacks
 {
-    /// <summary>
-    /// Photonに接続するところまで実装
-    /// </summary>
+    public string SceneName;
+    public GameObject obj_StartButton;
+    public GameObject obj_NowLoading;
     // Start is called before the first frame update
     void Start()
     {
-        //マスターサーバーに接続する
-        PhotonNetwork.ConnectUsingSettings();
+        //obj_StartButton.SetActive(true);
+        obj_NowLoading.SetActive(false);
     }
 
 
     public  override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster");
-        //マスターサーバーに接続したらLobbyに入る
-        PhotonNetwork.JoinLobby();
-    }
-    public override void OnJoinedLobby()
-    {
-        Debug.Log("OnJoinedLobby");
-        PhotonNetwork.JoinOrCreateRoom("room", new RoomOptions(),TypedLobby.Default);
         
+        SceneManager.LoadScene(SceneName);
+       
     }
-    public override void OnCreatedRoom()
+
+
+    public void OnClick()
     {
-        Debug.Log("CreateRoom");
+        //マスターサーバーに接続する
+        PhotonNetwork.ConnectUsingSettings();
+        //obj_StartButton.SetActive(false);
+        obj_NowLoading.SetActive(true);
     }
 }

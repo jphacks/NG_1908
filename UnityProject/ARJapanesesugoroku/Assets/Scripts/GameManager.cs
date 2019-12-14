@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
 public class GameManager : MonoBehaviourPunCallbacks
 {
     //デバッグ用
@@ -12,7 +13,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
     private PhotonView m_photonView;
-    public enum GameState { Idle,InitMapping,Mapping,InitWaitingOthers,WaitingOthers,InitGame,PlayingGame,InitRollingDice,RollingDice,InitMovingToSquere,MovingToSquere,InitEvent,Event,InitFinishGame,FinishGame}
     //現在状態の把握
     private GameState gameState = GameState.Idle;
     //プレイヤーのID
@@ -29,7 +29,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     private int nextplayerID;
     //ターン数
     public int turnnumber=0;
-    
+    //プレイヤーオブジェクト
+    public GameObject Koma;
+    //ARカメラオブジェクト
+    public GameObject ARCamera;
+
+    //初期の開始ボタン
+    private SyokiKaisiButton syokiKaisiButton;
     //マッピングのクラス
     private Mapping mapping;
     //ゲームプレイ中のクラス
@@ -42,18 +48,22 @@ public class GameManager : MonoBehaviourPunCallbacks
     private EndingScript endingScript;
     //人をスタートに集めるマス
     private CorrectStartMasu correctStartMasu;
+    //UIの表示クラス
+    private TextMasterController textMasterController;
 
-
+ 
     // Start is called before the first frame update
     void Start()
     {
         m_photonView = GetComponent<PhotonView>();
+        syokiKaisiButton = GetComponent<SyokiKaisiButton>();
         mapping = GetComponent<Mapping>();
         playerTurnMoving = GetComponent<PlayerTurnMoving>();
         rollingSaikoro = GetComponent<RollingSaikoro>();
         moveSelectedMasu = GetComponent<MoveSelectedMasu>();
         endingScript = GetComponent<EndingScript>();
         correctStartMasu = GetComponent<CorrectStartMasu>();
+        textMasterController = GetComponent<TextMasterController>();
     }
 
     // Update is called once per frame
@@ -63,15 +73,24 @@ public class GameManager : MonoBehaviourPunCallbacks
         switch (gameState)
         {
             case GameState.Idle:
-                if (debugg == true)
+                if (PhotonNetwork.IsMasterClient)
                 {
-                    Debug.Log("A");
-                    gameState = GameState.InitMapping;
+                    syokiKaisiButton.SetButton();
+                    if (syokiKaisiButton.Ready)
+                    {
+                        m_photonView.RPC("RPCSetPlayerObject", RpcTarget.All);
+                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMapping);
+                    }
+                    textMasterController.IndicateText(gameState, true);
                 }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
+                }
+  
                 break;
             //マップ生成開始
             case GameState.InitMapping:
-                //デバッグ用aaaaaaaaaaaa
                 if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("Initmapping");
@@ -89,22 +108,34 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameState.Mapping:
                 if (PhotonNetwork.IsMasterClient)
                 {
+                    textMasterController.IndicateText(gameState, true);
                     if (mapping.Ready==true)
                     {
                     
                         //マスを取得
                         MasuList = mapping.MasuList;
+                        //これじゃダメだった 
+                        //m_photonView.RPC("RPCSetMasuObject", RpcTarget.All,MasuList );
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.WaitingOthers);
                     }
                 
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
 
             case GameState.WaitingOthers:
                 if (PhotonNetwork.IsMasterClient)
                 {
+                    textMasterController.IndicateText(gameState, true);
                     //全員初期位置移動
                     correctStartMasu.WaitingAllPlayers();
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 if (correctStartMasu.Ready == true)
                 {
@@ -116,7 +147,15 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     PlayerList = playerTurnMoving.InitGame();
-                    
+                   /* Debug.Log(PlayerList);
+                    Debug.Log(PlayerList.Length);
+                    Debug.Log(PlayerList[1]);*/
+                    m_photonView.RPC("RPCSetPlayerList",RpcTarget.All,PlayerList);
+                }
+                else
+                {
+                    //ここでマスタークライアント以外はマスリストを取得
+                    MasuList = GameObject.FindGameObjectsWithTag("Masu");
                 }
                 gameState = GameState.PlayingGame;
                 break;
@@ -168,7 +207,11 @@ public class GameManager : MonoBehaviourPunCallbacks
                         Debug.Log(dicenumber);
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitMovingToSquere);
                     }
-                 
+                    textMasterController.IndicateText(gameState, true);
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
             case GameState.InitMovingToSquere:
@@ -201,15 +244,20 @@ public class GameManager : MonoBehaviourPunCallbacks
                         }
 
                         m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitEvent);
-                        }
+                    }
+                    textMasterController.IndicateText(gameState, true);
 
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
             case GameState.InitEvent:
                 if (PlayerID == PhotonNetwork.LocalPlayer.UserId)
                 {
                     //イベントせいぎょのしょり
-                    MasuList[mynumber-1].GetComponent<Masu>().sukustart();
+                    MasuList[mynumber-1].GetComponent<EventMasu>().RaiseEvent();
                 }
                 gameState = GameState.Event;
                 break;
@@ -219,22 +267,32 @@ public class GameManager : MonoBehaviourPunCallbacks
                     Debug.Log(mynumber);
                     Debug.Log(MasuList.Length);
                     Debug.Log(mynumber == MasuList.Length);
-                    //ここにターンプレイヤーがゴールにいるかどうか確認する
-                    if (mynumber == MasuList.Length)
+                    if (MasuList[mynumber - 1].GetComponent<EventMasu>().Ready == true)
                     {
-                        //次のステータスへ
-                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitFinishGame);
+                        //ここにターンプレイヤーがゴールにいるかどうか確認する
+                        if (mynumber == MasuList.Length)
+                        {
+                            //次のステータスへ
+                            m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.InitFinishGame);
+                        }
+                        else
+                        {
+                            //繰り返し
+                            m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
+                        }
                     }
-                    else
-                    {
-                        //繰り返し
-                        m_photonView.RPC("RPCSetState", RpcTarget.All, GameState.PlayingGame);
-                    }
+                    textMasterController.IndicateText(gameState, true);
+
+                }
+                else
+                {
+                    textMasterController.IndicateText(gameState, false);
                 }
                 break;
             //ゲーム終了開始
             case GameState.InitFinishGame:
-                endingScript.EndLoad();
+                if (mynumber == MasuList.Length) endingScript.WinLoad();
+                else endingScript.LoseLoad();
                 break;
             //ゲーム終了処理中
             case GameState.FinishGame:
@@ -248,10 +306,29 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         gameState = setState;
     }
-
+    //ターンプレイヤーのIDを共有
     [PunRPC]
     public void RPCSetPlayerID(string setid)
     {
         PlayerID = setid;
+    }
+    //プレイヤーのリストを共有
+    [PunRPC]
+    public void RPCSetPlayerList(string[] setid)
+    {
+        PlayerList = setid;
+    }
+    [PunRPC]
+    public void RPCSetPlayerObject()
+    {
+        string MyKomaname = Koma.name;
+        GameObject MyKoma = PhotonNetwork.Instantiate(MyKomaname, new Vector3(0, 0, 0), Quaternion.identity);
+        MyKoma.transform.parent = ARCamera.transform;
+        MyKoma.transform.localPosition = Vector3.zero;
+    }
+    [PunRPC]
+    public void RPCSetMasuObject(GameObject[] setMasuList)
+    {
+        MasuList = setMasuList;
     }
 }

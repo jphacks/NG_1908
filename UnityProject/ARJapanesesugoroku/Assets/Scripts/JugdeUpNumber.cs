@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class JugdeUpNumber : MonoBehaviour
 {
@@ -8,17 +9,23 @@ public class JugdeUpNumber : MonoBehaviour
      public int UpDiceNumber=0;
     //投げた後かどうかの判定用
     bool throwing = false;
+    public GameObject Dice;
+    private PhotonView m_photonView;
 
     //サイコロの中心と各側面のｙ座標
     float centery, y1, y2, y3, y4, y5, y6;
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_photonView = Dice.GetComponent<PhotonView>();
     }
     
     public void PushUp()
     {
+        if (!m_photonView.IsMine)
+        {
+            return;
+        }
         throwing = true;
     } 
     // Update is called once per frame

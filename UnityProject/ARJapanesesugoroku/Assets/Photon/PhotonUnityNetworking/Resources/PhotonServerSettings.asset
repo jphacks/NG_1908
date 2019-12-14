@@ -39,5 +39,10 @@ MonoBehaviour:
   - RPCDebug
   - RPCSetWorldMap
   - RPCSetPlayerID
+  - RPCSetPlayerObject
+  - RPCSetMasuObject
+  - RPCSetPlayerList
+  - RPCChangeScene
+  - RPCStartGame
   DisableAutoOpenWizard: 1
   ShowSettings: 1

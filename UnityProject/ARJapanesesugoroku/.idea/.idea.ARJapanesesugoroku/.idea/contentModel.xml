@@ -21,8 +21,8 @@
             </e>
           </e>
         </e>
-        <e p="FUJI" t="Include">
-          <e p="MasuAppeal.cs" t="Include" />
+        <e p="Editor" t="Include">
+          <e p="TextMasterControllerEditor.cs" t="Include" />
         </e>
         <e p="Miraikomachi" t="Include">
           <e p="MToon" t="Include">
@@ -484,11 +484,13 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ARShareManager.cs" t="Include" />
+          <e p="BacktoTitleButton.cs" t="Include" />
           <e p="ButtonScript.cs" t="Include" />
           <e p="CalcurateMatchingNumbers.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="ChangeSceneToItokaTest.cs" t="Include" />
           <e p="ChangeSceneToTitle.cs" t="Include" />
+          <e p="ChangingTxt.cs" t="Include" />
           <e p="CorrectStartMasu.cs" t="Include" />
           <e p="CourseDecide" t="Include">
             <e p="Countdowning.cs" t="Include" />
@@ -496,42 +498,57 @@
             <e p="StartCountdown.cs" t="Include" />
           </e>
           <e p="CreateARObject.cs" t="Include" />
+          <e p="CubeGenerator.cs" t="Include" />
+          <e p="DiceButtonReference.cs" t="Include" />
           <e p="DiceSIdeCollision.cs" t="Include" />
           <e p="EndingScript.cs" t="Include" />
+          <e p="EventScript.cs" t="Include" />
           <e p="EventScripts" t="Include">
             <e p="dance.cs" t="Include" />
+            <e p="EventMasu.cs" t="Include" />
             <e p="forbitEng.cs" t="Include" />
             <e p="kataashi.cs" t="Include" />
             <e p="modoru.cs" t="Include" />
             <e p="strangepose.cs" t="Include" />
             <e p="sukuwatto.cs" t="Include" />
+            <e p="TextEventMasu.cs" t="Include" />
             <e p="threechar.cs" t="Include" />
             <e p="tyuniill.cs" t="Include" />
           </e>
-          <e p="finishSeneSample" t="Include">
-            <e p="revercible.cs" t="Include" />
-            <e p="revercibleset" t="Include">
-              <e p="revercible.shader" t="Include" />
-            </e>
-          </e>
+          <e p="FUJI_DiceNumberLookAt.cs" t="Include" />
+          <e p="FUJI_DiceRoll.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GameStartButton.cs" t="Include" />
+          <e p="InputName.cs" t="Include" />
+          <e p="InputSubName.cs" t="Include" />
           <e p="ItokaKomaMove.cs" t="Include" />
           <e p="ItokaPhtonDebug.cs" t="Include" />
           <e p="JugdeUpNumber.cs" t="Include" />
           <e p="Mapping.cs" t="Include" />
-          <e p="Masu.cs" t="Include" />
+          <e p="MasuAppeal.cs" t="Include" />
+          <e p="MasuAppeal_2.cs" t="Include" />
+          <e p="MattingManager.cs" t="Include" />
           <e p="MoveSelectedMasu.cs" t="Include" />
+          <e p="MttingButtonManager.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerResult.cs" t="Include" />
           <e p="PlayerTagStatus.cs" t="Include" />
           <e p="PlayerTurnMoving.cs" t="Include" />
+          <e p="RecentName.cs" t="Include" />
+          <e p="revercible.cs" t="Include" />
           <e p="RollingSaikoro.cs" t="Include" />
           <e p="Rotator.cs" t="Include" />
           <e p="SceneFT.cs" t="Include" />
           <e p="StartButton.cs" t="Include" />
           <e p="StartMaster.cs" t="Include" />
+          <e p="SyokiKaisiButton.cs" t="Include" />
+          <e p="TextMaster.cs" t="Include" />
+          <e p="TextMasterController.cs" t="Include" />
           <e p="ThrowDice.cs" t="Include" />
+          <e p="TitleManaging.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="revercible.shader" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

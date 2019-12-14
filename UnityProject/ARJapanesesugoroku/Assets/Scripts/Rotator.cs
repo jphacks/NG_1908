@@ -1,24 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Rotator : MonoBehaviour
+
+public class Rotator : MonoBehaviourPunCallbacks
 {
+    private PhotonView m_photonView;
     public bool pushr = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        m_photonView = GetComponent<PhotonView>();
+    }
     public void PushDown()
     {
+        if (!m_photonView.IsMine)
+        {
+            return;
+        }
         pushr = true;
     }
 
     public void Pushup()
     {
+        if (!m_photonView.IsMine)
+        {
+            return;
+        }
         pushr = false;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
