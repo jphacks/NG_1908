@@ -112,8 +112,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4cd931b58234b64685276ba8450d6e5, type: 2}
@@ -9866,23 +9864,23 @@ PrefabInstance:
       propertyPath: Cloud
       value: 
       objectReference: {fileID: 8940910703277072286}
-    - target: {fileID: 3420568896408455825, guid: 580b291bc3256954abe9f329df99a34a,
+    - target: {fileID: 4677505241762898218, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036155753, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1696773583, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2036155753, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677505241762898218, guid: 580b291bc3256954abe9f329df99a34a,
+    - target: {fileID: 3420568896408455825, guid: 580b291bc3256954abe9f329df99a34a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 580b291bc3256954abe9f329df99a34a, type: 3}
