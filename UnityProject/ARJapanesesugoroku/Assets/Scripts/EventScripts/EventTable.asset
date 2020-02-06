@@ -16,18 +16,28 @@ MonoBehaviour:
   - eventTextName: "\u82F1\u8A9E\u7981\u6B62"
     eventText: "\u3053\u3053\u304B\u3089\u82F1\u8A9E\u7981\u6B62\uFF01"
     flag: 1
+    weight: 10
   - eventTextName: "\u4E2D\u4E8C\u75C5"
     eventText: "\u3053\u308C\u304B\u3089\u4E2D\u4E8C\u75C5\u306B\u306A\u308C\uFF01"
     flag: 1
+    weight: 10
   - eventTextName: "10\u30B9\u30AF\u30EF\u30C3\u30C8"
     eventText: "10\u30B9\u30AF\u30EF\u30C3\u30C8\u3057\u308D\uFF01"
     flag: 1
+    weight: 10
   - eventTextName: "\u7247\u8DB3\u7ACB\u3061"
     eventText: "1\u30BF\u30FC\u30F3\u7247\u8DB3\u7ACB\u3061\uFF01"
     flag: 0
+    weight: 10
   - eventTextName: "\u5909\u306A\u30DD\u30FC\u30BA"
     eventText: "1\u30BF\u30FC\u30F3\u5909\u306A\u30DD\u30FC\u30BA\uFF01"
     flag: 0
+    weight: 10
   - eventTextName: "\u4E00\u56DE\u4F11\u307F"
     eventText: 
     flag: 0
+    weight: 20
+  - eventTextName: New Event
+    eventText: 
+    flag: 0
+    weight: 10

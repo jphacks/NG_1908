@@ -11,11 +11,14 @@ public class EventScripts
     public string eventText;
     //イベントのオンオフフラグ
     public bool flag;
+    //確率の重み
+    public int weight;
    
-    public EventScripts(string _eventTextName,string _eventText,bool _flag)
+    public EventScripts(string _eventTextName,string _eventText,bool _flag,int _weight)
     {
         eventTextName = _eventTextName;
         eventText = _eventText;
         flag = _flag;
+        weight = _weight;
     }
 }

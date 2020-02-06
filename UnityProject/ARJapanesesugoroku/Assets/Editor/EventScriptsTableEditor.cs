@@ -41,6 +41,19 @@ public class EventScriptsTableEditor : Editor
                     list[i].eventTextName = EditorGUILayout.TextField("Name", list[i].eventTextName);
                     list[i].eventText = EditorGUILayout.TextField("Content", list[i].eventText);
                     list[i].flag = EditorGUILayout.Toggle("Enable", list[i].flag);
+                    list[i].weight = EditorGUILayout.IntSlider("Weight",list[i].weight,0, 100);
+                    EditorGUILayout.BeginHorizontal();
+
+                    // いっぱいまで空白を埋める
+                    GUILayout.FlexibleSpace();
+
+                    if (GUILayout.Button("Delete"))
+                    {
+                        list.RemoveAt(i);
+                    }
+
+                    EditorGUILayout.EndHorizontal();
+                    // --ここまで--
                 }
 
 
@@ -51,7 +64,7 @@ public class EventScriptsTableEditor : Editor
             // Listの追加
             if (GUILayout.Button("Add"))
             {
-                list.Add(new EventScripts("New Event","",false));
+                list.Add(new EventScripts("New Event","",false,10));
                 isInitialized = false;
             }
             if (GUILayout.Button("Save"))
