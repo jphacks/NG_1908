@@ -7,8 +7,11 @@ public class EventScriptNode : MonoBehaviour
 {
     [SerializeField] private InputField inputField;
     
-    //テスト用
     private string _eventText;
+    public string EventText
+    {
+        get => _eventText;
+    }
     
     public void SetEventText()
     {

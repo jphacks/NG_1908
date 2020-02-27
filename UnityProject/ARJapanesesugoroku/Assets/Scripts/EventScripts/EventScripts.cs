@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EventScripts 
+public class EventScripts
 {
     //イベントの名前
     public string eventTextName;
